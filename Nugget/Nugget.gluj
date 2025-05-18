@@ -53,6 +53,12 @@
   "GlobalContentSettingsSave": {
     "GenerateLoadGlobalContentCode": true
   },
+  "Properties": [
+    {
+      "Name": "IsOpenVisualStudioAutomaticallyChecked",
+      "Value": false
+    }
+  ],
   "SyncedProjects": [],
   "StartUpScreen": "Screens\\Level1",
   "ResolutionPresets": [],
@@ -125,7 +131,7 @@
     "AspectRatioWidth": 4.0,
     "AspectRatioHeight": 3.0,
     "SupportLandscape": true,
-    "Scale": 200,
+    "Scale": 500,
     "ScaleGum": 100,
     "DominantInternalCoordinates": 1,
     "TextureFilter": 1

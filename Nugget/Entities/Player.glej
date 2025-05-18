@@ -150,7 +150,7 @@
         {
           "Type": "float",
           "Member": "TextureScale",
-          "Value": 1.0,
+          "Value": 5.0,
           "Time": 0.0
         },
         {
@@ -164,6 +164,12 @@
           "Member": "CurrentChainName",
           "Value": "IdleDown",
           "Time": 0.0
+        },
+        {
+          "Type": "bool",
+          "Member": "Visible",
+          "Value": false,
+          "Time": 0.0
         }
       ],
       "SourceType": 2,
@@ -172,7 +178,7 @@
       "GenerateTimedEmit": true
     },
     {
-      "InstanceName": "AxisAlignedRectangleInstance",
+      "InstanceName": "PlayerRectangle",
       "SourceClassType": "FlatRedBall.Math.Geometry.AxisAlignedRectangle",
       "Properties": [
         {
@@ -185,19 +191,19 @@
         {
           "Type": "float",
           "Member": "Width",
-          "Value": 8.0,
+          "Value": 16.0,
           "Time": 0.0
         },
         {
           "Type": "float",
           "Member": "Height",
-          "Value": 8.0,
+          "Value": 16.0,
           "Time": 0.0
         },
         {
           "Type": "float",
           "Member": "Y",
-          "Value": 2.0,
+          "Value": 0.0,
           "Time": 0.0
         }
       ],
@@ -208,7 +214,7 @@
       "GenerateTimedEmit": true
     },
     {
-      "InstanceName": "CircleInstance",
+      "InstanceName": "SwordCircle",
       "SourceClassType": "FlatRedBall.Math.Geometry.Circle",
       "Properties": [
         {
@@ -222,6 +228,12 @@
           "Type": "float",
           "Member": "Radius",
           "Value": 16.0,
+          "Time": 0.0
+        },
+        {
+          "Type": "float",
+          "Member": "X",
+          "Value": 0.0,
           "Time": 0.0
         }
       ],

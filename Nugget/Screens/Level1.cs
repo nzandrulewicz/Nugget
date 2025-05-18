@@ -28,7 +28,13 @@ namespace Nugget.Screens
 
         private void CustomActivity(bool firstTimeCalled)
         {
-            
+            if (InputManager.Mouse.ButtonPushed(Mouse.MouseButtons.LeftButton))
+            {
+                PlayerList[0].SwordCircle.Visible = true;
+            } else
+            {
+                PlayerList[0].SwordCircle.Visible = false;
+            }
         }
 
         private void CustomDestroy()
