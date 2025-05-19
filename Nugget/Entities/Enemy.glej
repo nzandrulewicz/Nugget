@@ -5,21 +5,6 @@
   "Source": "GLUE",
   "CreatedByOtherEntities": true,
   "Is2D": true,
-  "ReferencedFiles": [
-    {
-      "Name": "Entities/Player/ZoriaTopDownAnimations.achx",
-      "IsSharedStatic": true,
-      "RuntimeType": "FlatRedBall.Graphics.Animation.AnimationChainList",
-      "ProjectsToExcludeFrom": []
-    },
-    {
-      "Name": "Entities/Player/TopDownValuesStatic.csv",
-      "IsSharedStatic": true,
-      "HasPublicProperty": true,
-      "CreatesDictionary": true,
-      "ProjectsToExcludeFrom": []
-    }
-  ],
   "CustomVariables": [
     {
       "Properties": [
@@ -68,7 +53,7 @@
         }
       ],
       "Name": "TeamIndex",
-      "DefaultValue": 0,
+      "DefaultValue": 1,
       "SetByDerived": true
     },
     {
@@ -90,7 +75,7 @@
         }
       ],
       "Name": "MaxHealth",
-      "DefaultValue": 100.0,
+      "DefaultValue": 50.0,
       "SetByDerived": true,
       "Category": "Damageable"
     },
@@ -177,11 +162,6 @@
       "Type": "bool"
     },
     {
-      "Name": "IsTopDown",
-      "Value": true,
-      "Type": "bool"
-    },
-    {
       "Name": "ImplementsIDamageArea",
       "Value": true,
       "Type": "Object"
@@ -189,48 +169,7 @@
   ],
   "NamedObjects": [
     {
-      "InstanceName": "SpriteInstance",
-      "SourceClassType": "FlatRedBall.Sprite",
-      "Properties": [
-        {
-          "Name": "AssociateWithFactory",
-          "Value": true,
-          "Type": "bool"
-        }
-      ],
-      "InstructionSaves": [
-        {
-          "Type": "float",
-          "Member": "TextureScale",
-          "Value": 5.0,
-          "Time": 0.0
-        },
-        {
-          "Type": "AnimationChainList",
-          "Member": "AnimationChains",
-          "Value": "ZoriaTopDownAnimations",
-          "Time": 0.0
-        },
-        {
-          "Type": "string",
-          "Member": "CurrentChainName",
-          "Value": "IdleDown",
-          "Time": 0.0
-        },
-        {
-          "Type": "bool",
-          "Member": "Visible",
-          "Value": false,
-          "Time": 0.0
-        }
-      ],
-      "SourceType": 2,
-      "SourceFile": "Sprite",
-      "AttachToContainer": true,
-      "GenerateTimedEmit": true
-    },
-    {
-      "InstanceName": "PlayerRectangle",
+      "InstanceName": "AxisAlignedRectangleInstance",
       "SourceClassType": "FlatRedBall.Math.Geometry.AxisAlignedRectangle",
       "Properties": [
         {
@@ -253,9 +192,9 @@
           "Time": 0.0
         },
         {
-          "Type": "float",
-          "Member": "Y",
-          "Value": 0.0,
+          "Type": "Color",
+          "Member": "Color",
+          "Value": "Violet",
           "Time": 0.0
         }
       ],
@@ -264,39 +203,8 @@
       "HasPublicProperty": true,
       "AttachToContainer": true,
       "GenerateTimedEmit": true
-    },
-    {
-      "InstanceName": "SwordCollision",
-      "SourceClassType": "FlatRedBall.Math.Geometry.Circle",
-      "Properties": [
-        {
-          "Name": "AssociateWithFactory",
-          "Value": true,
-          "Type": "bool"
-        }
-      ],
-      "InstructionSaves": [
-        {
-          "Type": "float",
-          "Member": "Radius",
-          "Value": 8.0,
-          "Time": 0.0
-        },
-        {
-          "Type": "float",
-          "Member": "X",
-          "Value": 0.0,
-          "Time": 0.0
-        }
-      ],
-      "SourceType": 2,
-      "SourceFile": "Circle",
-      "HasPublicProperty": true,
-      "AttachToContainer": true,
-      "GenerateTimedEmit": true,
-      "IncludeInICollidable": false
     }
   ],
-  "Name": "Entities\\Player",
+  "Name": "Entities\\Enemy",
   "CustomClassesForExport": []
 }

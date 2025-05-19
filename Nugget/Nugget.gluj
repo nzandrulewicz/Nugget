@@ -107,6 +107,9 @@
   ],
   "EntityReferences": [
     {
+      "Name": "Entities\\Enemy"
+    },
+    {
       "Name": "Entities\\Player"
     }
   ],

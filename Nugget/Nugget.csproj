@@ -335,10 +335,15 @@
   <ItemGroup>
     <Compile Include="DataTypes\TileMapInfo.Generated.cs" />
     <Compile Include="DataTypes\TopDownValues.Generated.cs" />
+    <Compile Include="Entities\Enemy.cs" />
+    <Compile Include="Entities\Enemy.Generated.cs">
+      <DependentUpon>Enemy.cs</DependentUpon>
+    </Compile>
     <Compile Include="Entities\Player.cs" />
     <Compile Include="Entities\Player.Generated.cs">
       <DependentUpon>Player.cs</DependentUpon>
     </Compile>
+    <Compile Include="Factories\EnemyFactory.Generated.cs" />
     <Compile Include="Factories\PlayerFactory.Generated.cs" />
     <Compile Include="FileAliases.Generated.cs" />
     <Compile Include="Forms\Screens\GameScreenGumForms.Generated.cs" />
@@ -554,7 +559,13 @@
     <Compile Include="Performance\PoolList.Generated.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Screens\GameScreen.cs" />
+    <Compile Include="Screens\GameScreen.Event.cs">
+      <DependentUpon>GameScreen.cs</DependentUpon>
+    </Compile>
     <Compile Include="Screens\GameScreen.Generated.cs">
+      <DependentUpon>GameScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\GameScreen.Generated.Event.cs">
       <DependentUpon>GameScreen.cs</DependentUpon>
     </Compile>
     <Compile Include="Screens\Level1.cs" />
