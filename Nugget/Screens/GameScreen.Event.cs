@@ -33,6 +33,7 @@ namespace Nugget.Screens
                 }
             }
         }
+
         void OnPlayerSwordCollisionVsEnemyCollided (Entities.Player player, Entities.Enemy enemy) 
         {
             if (player.IsAttackActive && enemy.ShouldTakeDamage(player))
@@ -45,6 +46,5 @@ namespace Nugget.Screens
                 }
             }
         }
-        
     }
 }
