@@ -85,7 +85,8 @@
     {
       "Name": "TopDownValues",
       "CsvFilesUsingThis": [
-        "Entities/Player/TopDownValuesStatic.csv"
+        "Entities/Player/TopDownValuesStatic.csv",
+        "Entities/EnemyBase/TopDownValuesStatic.csv"
       ],
       "RequiredProperties": [],
       "GenerateCode": true
@@ -107,7 +108,7 @@
   ],
   "EntityReferences": [
     {
-      "Name": "Entities\\Enemy"
+      "Name": "Entities\\EnemyBase"
     },
     {
       "Name": "Entities\\Player"

@@ -81,7 +81,7 @@
       ]
     },
     {
-      "InstanceName": "EnemyList",
+      "InstanceName": "EnemyBaseList",
       "SourceClassType": "FlatRedBall.Math.PositionedObjectList<T>",
       "Properties": [
         {
@@ -93,7 +93,7 @@
       "InstructionSaves": [],
       "SourceType": 2,
       "SourceFile": "PositionedObjectList (Generic)",
-      "SourceClassGenericType": "Entities\\Enemy",
+      "SourceClassGenericType": "Entities\\EnemyBase",
       "ExposedInDerived": true,
       "AttachToContainer": true,
       "GenerateTimedEmit": true
@@ -240,8 +240,8 @@
       "GenerateTimedEmit": true
     },
     {
-      "InstanceName": "PlayerVsEnemy",
-      "SourceClassType": "FlatRedBall.Math.Collision.ListVsListRelationship<Entities.Player, Entities.Enemy>",
+      "InstanceName": "PlayerVsEnemyBase",
+      "SourceClassType": "FlatRedBall.Math.Collision.ListVsListRelationship<Entities.Player, Entities.EnemyBase>",
       "Properties": [
         {
           "Name": "AssociateWithFactory",
@@ -260,7 +260,7 @@
         },
         {
           "Name": "SecondCollisionName",
-          "Value": "EnemyList",
+          "Value": "EnemyBaseList",
           "Type": "String"
         },
         {
@@ -291,8 +291,8 @@
       "GenerateTimedEmit": true
     },
     {
-      "InstanceName": "PlayerSwordCollisionVsEnemy",
-      "SourceClassType": "FlatRedBall.Math.Collision.ListVsListRelationship<Entities.Player, Entities.Enemy>",
+      "InstanceName": "PlayerSwordCollisionVsEnemyBase",
+      "SourceClassType": "FlatRedBall.Math.Collision.ListVsListRelationship<Entities.Player, Entities.EnemyBase>",
       "Properties": [
         {
           "Name": "AssociateWithFactory",
@@ -311,7 +311,7 @@
         },
         {
           "Name": "SecondCollisionName",
-          "Value": "EnemyList",
+          "Value": "EnemyBaseList",
           "Type": "String"
         },
         {
@@ -330,7 +330,14 @@
           "Type": "String"
         }
       ],
-      "InstructionSaves": [],
+      "InstructionSaves": [
+        {
+          "Type": "bool",
+          "Member": "IsActive",
+          "Value": true,
+          "Time": 0.0
+        }
+      ],
       "SourceType": 2,
       "SourceFile": "FlatRedBall.Math.Collision.ListVsListRelationship<Entities.Player, Entities.Enemy>",
       "AttachToContainer": true,
@@ -366,8 +373,8 @@
       "GenerateTimedEmit": true
     },
     {
-      "InstanceName": "EnemyVsPlayer",
-      "SourceClassType": "FlatRedBall.Math.Collision.ListVsListRelationship<Entities.Enemy, Entities.Player>",
+      "InstanceName": "EnemyBaseVsPlayer",
+      "SourceClassType": "FlatRedBall.Math.Collision.ListVsListRelationship<Entities.EnemyBase, Entities.Player>",
       "Properties": [
         {
           "Name": "AssociateWithFactory",
@@ -381,7 +388,7 @@
         },
         {
           "Name": "FirstCollisionName",
-          "Value": "EnemyList",
+          "Value": "EnemyBaseList",
           "Type": "String"
         },
         {
@@ -398,6 +405,62 @@
       "InstructionSaves": [],
       "SourceType": 2,
       "SourceFile": "FlatRedBall.Math.Collision.ListVsListRelationship<Entities.Enemy, Entities.Player>",
+      "AttachToContainer": true,
+      "GenerateTimedEmit": true
+    },
+    {
+      "InstanceName": "EnemyBaseVsSolidCollision",
+      "SourceClassType": "FlatRedBall.Math.Collision.CollidableListVsTileShapeCollectionRelationship<Entities.EnemyBase>",
+      "Properties": [
+        {
+          "Name": "AssociateWithFactory",
+          "Value": true,
+          "Type": "bool"
+        },
+        {
+          "Name": "IsAutoNameEnabled",
+          "Value": true,
+          "Type": "bool"
+        },
+        {
+          "Name": "FirstCollisionName",
+          "Value": "EnemyBaseList",
+          "Type": "String"
+        },
+        {
+          "Name": "SecondCollisionName",
+          "Value": "SolidCollision",
+          "Type": "String"
+        },
+        {
+          "Name": "CollisionType",
+          "Value": 2,
+          "Type": "int"
+        },
+        {
+          "Name": "IsDealDamageChecked",
+          "Value": true,
+          "Type": "Object"
+        },
+        {
+          "Name": "FirstCollisionMass",
+          "Value": 0.0,
+          "Type": "float"
+        },
+        {
+          "Name": "SecondCollisionMass",
+          "Value": 1.0,
+          "Type": "float"
+        },
+        {
+          "Name": "CollisionElasticity",
+          "Value": 0.0,
+          "Type": "float"
+        }
+      ],
+      "InstructionSaves": [],
+      "SourceType": 2,
+      "SourceFile": "FlatRedBall.Math.Collision.CollidableListVsTileShapeCollectionRelationship<Entities.EnemyBase>",
       "AttachToContainer": true,
       "GenerateTimedEmit": true
     },
@@ -424,13 +487,23 @@
           "Name": "NodeNetworkTileTypeName",
           "Value": "WalkableTile",
           "Type": "String"
+        },
+        {
+          "Name": "DirectionalType",
+          "Value": 1,
+          "Type": "int"
+        },
+        {
+          "Name": "EliminateCutCorners",
+          "Value": true,
+          "Type": "bool"
         }
       ],
       "InstructionSaves": [
         {
           "Type": "bool",
           "Member": "Visible",
-          "Value": true,
+          "Value": false,
           "Time": 0.0
         }
       ],
@@ -444,12 +517,12 @@
   "Events": [
     {
       "EventName": "PlayerVsEnemyCollided",
-      "SourceObject": "PlayerVsEnemy",
+      "SourceObject": "PlayerVsEnemyBase",
       "SourceObjectEvent": "CollisionOccurred"
     },
     {
       "EventName": "PlayerSwordCollisionVsEnemyCollided",
-      "SourceObject": "PlayerSwordCollisionVsEnemy",
+      "SourceObject": "PlayerSwordCollisionVsEnemyBase",
       "SourceObjectEvent": "CollisionOccurred"
     }
   ],

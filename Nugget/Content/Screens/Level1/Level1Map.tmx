@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" width="32" height="32" tilewidth="16" tileheight="16" infinite="0" nextlayerid="2" nextobjectid="1">
+<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="32" height="32" tilewidth="16" tileheight="16" infinite="0" nextlayerid="3" nextobjectid="1">
  <tileset firstgid="1" source="../../StandardTileset.tsx"/>
  <layer id="1" name="GameplayLayer" width="32" height="32" tintcolor="#ffffff">
   <data encoding="base64" compression="gzip">
    H4sIAAAAAAAACu3OoQ0AQAzDwHTZ7D/C0wfFNbGl4MskGXhU+vr6+vp7Bf2CfsP6/w99ff1bv8su/av09fV5n9wDoqioBAAQAAA=
+  </data>
+ </layer>
+ <layer id="2" name="EnemyWalkableTIleLayer" width="32" height="32" visible="0">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAACu3DAQkAAAwEoQv0/fOtx1Bw1VRVVdXXD3N+fdgAEAAA
   </data>
  </layer>
 </map>

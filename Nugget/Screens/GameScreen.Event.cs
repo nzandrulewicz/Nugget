@@ -13,7 +13,7 @@ namespace Nugget.Screens
 {
     public partial class GameScreen
     {
-        void OnPlayerVsEnemyCollided (Entities.Player player, Entities.Enemy enemy) 
+        void OnPlayerVsEnemyCollided (Entities.Player player, Entities.EnemyBase enemy) 
         {
             // ShouldTakeDamage checks if
             // * Enemy and Player are on different teams
@@ -34,7 +34,7 @@ namespace Nugget.Screens
             }
         }
 
-        void OnPlayerSwordCollisionVsEnemyCollided (Entities.Player player, Entities.Enemy enemy) 
+        void OnPlayerSwordCollisionVsEnemyCollided (Entities.Player player, Entities.EnemyBase enemy) 
         {
             if (player.IsAttackActive && enemy.ShouldTakeDamage(player))
             {

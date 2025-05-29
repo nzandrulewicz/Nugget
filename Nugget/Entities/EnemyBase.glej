@@ -5,6 +5,15 @@
   "Source": "GLUE",
   "CreatedByOtherEntities": true,
   "Is2D": true,
+  "ReferencedFiles": [
+    {
+      "Name": "Entities/EnemyBase/TopDownValuesStatic.csv",
+      "IsSharedStatic": true,
+      "HasPublicProperty": true,
+      "CreatesDictionary": true,
+      "ProjectsToExcludeFrom": []
+    }
+  ],
   "CustomVariables": [
     {
       "Properties": [
@@ -165,11 +174,21 @@
       "Name": "ImplementsIDamageArea",
       "Value": true,
       "Type": "Object"
+    },
+    {
+      "Name": "IsTopDown",
+      "Value": true,
+      "Type": "bool"
+    },
+    {
+      "Name": "InputDevice",
+      "Value": 1,
+      "Type": "int"
     }
   ],
   "NamedObjects": [
     {
-      "InstanceName": "AxisAlignedRectangleInstance",
+      "InstanceName": "EnemyBaseRectangle",
       "SourceClassType": "FlatRedBall.Math.Geometry.AxisAlignedRectangle",
       "Properties": [
         {
@@ -205,6 +224,6 @@
       "GenerateTimedEmit": true
     }
   ],
-  "Name": "Entities\\Enemy",
+  "Name": "Entities\\EnemyBase",
   "CustomClassesForExport": []
 }
