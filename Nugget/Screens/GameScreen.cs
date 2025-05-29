@@ -35,11 +35,13 @@ namespace Nugget.Screens
 
         private void CustomActivity(bool firstTimeCalled)
         {
+            /*
             FlatRedBallServices.Game.IsMouseVisible = true;
             if (GuiManager.Cursor.PrimaryClick)
             {
                 Factories.EnemyBaseFactory.CreateNew(GuiManager.Cursor.WorldPosition);
             }
+            */
         }
 
         private void CustomDestroy()

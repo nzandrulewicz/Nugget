@@ -111,6 +111,9 @@
       "Name": "Entities\\EnemyBase"
     },
     {
+      "Name": "Entities\\EnemySpawner"
+    },
+    {
       "Name": "Entities\\Player"
     }
   ],
