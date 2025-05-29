@@ -11,6 +11,24 @@
       "ProjectsToExcludeFrom": []
     }
   ],
+  "CustomVariables": [
+    {
+      "Properties": [
+        {
+          "Name": "Type",
+          "Value": "string",
+          "Type": "String"
+        },
+        {
+          "Name": "Category",
+          "Value": "Layer",
+          "Type": "String"
+        }
+      ],
+      "Name": "DefaultLayer",
+      "Category": "Layer"
+    }
+  ],
   "NamedObjects": [
     {
       "InstanceName": "PlayerList",
@@ -331,14 +349,14 @@
       "InstructionSaves": [
         {
           "Type": "string",
-          "Member": "Targets",
-          "Value": "PlayerList",
+          "Member": "Map",
+          "Value": "Map",
           "Time": 0.0
         },
         {
           "Type": "string",
-          "Member": "Map",
-          "Value": "Map",
+          "Member": "Targets",
+          "Value": "PlayerList",
           "Time": 0.0
         }
       ],
@@ -380,6 +398,44 @@
       "InstructionSaves": [],
       "SourceType": 2,
       "SourceFile": "FlatRedBall.Math.Collision.ListVsListRelationship<Entities.Enemy, Entities.Player>",
+      "AttachToContainer": true,
+      "GenerateTimedEmit": true
+    },
+    {
+      "InstanceName": "WalkingNodeNetwork",
+      "SourceClassType": "FlatRedBall.AI.Pathfinding.TileNodeNetwork",
+      "Properties": [
+        {
+          "Name": "AssociateWithFactory",
+          "Value": true,
+          "Type": "bool"
+        },
+        {
+          "Name": "NetworkCreationOptions",
+          "Value": 3,
+          "Type": "int"
+        },
+        {
+          "Name": "SourceTmxName",
+          "Value": "Map",
+          "Type": "String"
+        },
+        {
+          "Name": "NodeNetworkTileTypeName",
+          "Value": "WalkableTile",
+          "Type": "String"
+        }
+      ],
+      "InstructionSaves": [
+        {
+          "Type": "bool",
+          "Member": "Visible",
+          "Value": true,
+          "Time": 0.0
+        }
+      ],
+      "SourceType": 2,
+      "SourceFile": "TileNodeNetwork",
       "AttachToContainer": true,
       "GenerateTimedEmit": true
     }

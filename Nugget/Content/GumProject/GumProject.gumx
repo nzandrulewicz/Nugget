@@ -2,20 +2,18 @@
 <GumProjectSave xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <CustomProperties />
   <FontRanges>32-126,160-255</FontRanges>
-  <FontSpacingVertical>1</FontSpacingVertical>
-  <FontSpacingHorizontal>1</FontSpacingHorizontal>
   <Version>1</Version>
-  <DefaultCanvasWidth>800</DefaultCanvasWidth>
-  <DefaultCanvasHeight>600</DefaultCanvasHeight>
+  <DefaultCanvasWidth>480</DefaultCanvasWidth>
+  <DefaultCanvasHeight>360</DefaultCanvasHeight>
   <ShowOutlines>true</ShowOutlines>
   <ShowCanvasOutline>true</ShowCanvasOutline>
   <ShowRuler>true</ShowRuler>
   <ShowCheckerBackground>true</ShowCheckerBackground>
-  <TextureFilter>Point</TextureFilter>
   <ConvertVariablesOnUnitTypeChange>false</ConvertVariablesOnUnitTypeChange>
   <RestrictToUnitValues>true</RestrictToUnitValues>
   <RestrictFileNamesForAndroid>false</RestrictFileNamesForAndroid>
   <Guides />
+  <ParentProjectRoot>../</ParentProjectRoot>
   <ShowLocalizationInGum>true</ShowLocalizationInGum>
   <CurrentLanguageIndex>0</CurrentLanguageIndex>
   <ScreenReference>

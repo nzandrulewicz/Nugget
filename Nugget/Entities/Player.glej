@@ -200,12 +200,6 @@
       ],
       "InstructionSaves": [
         {
-          "Type": "float",
-          "Member": "TextureScale",
-          "Value": 5.0,
-          "Time": 0.0
-        },
-        {
           "Type": "AnimationChainList",
           "Member": "AnimationChains",
           "Value": "ZoriaTopDownAnimations",
@@ -215,6 +209,12 @@
           "Type": "string",
           "Member": "CurrentChainName",
           "Value": "IdleDown",
+          "Time": 0.0
+        },
+        {
+          "Type": "float",
+          "Member": "TextureScale",
+          "Value": 5.0,
           "Time": 0.0
         },
         {
@@ -242,13 +242,13 @@
       "InstructionSaves": [
         {
           "Type": "float",
-          "Member": "Width",
+          "Member": "Height",
           "Value": 16.0,
           "Time": 0.0
         },
         {
           "Type": "float",
-          "Member": "Height",
+          "Member": "Width",
           "Value": 16.0,
           "Time": 0.0
         },

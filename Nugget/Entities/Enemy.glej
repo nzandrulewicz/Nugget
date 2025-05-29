@@ -180,9 +180,9 @@
       ],
       "InstructionSaves": [
         {
-          "Type": "float",
-          "Member": "Width",
-          "Value": 16.0,
+          "Type": "Color",
+          "Member": "Color",
+          "Value": "Violet",
           "Time": 0.0
         },
         {
@@ -192,9 +192,9 @@
           "Time": 0.0
         },
         {
-          "Type": "Color",
-          "Member": "Color",
-          "Value": "Violet",
+          "Type": "float",
+          "Member": "Width",
+          "Value": 16.0,
           "Time": 0.0
         }
       ],
