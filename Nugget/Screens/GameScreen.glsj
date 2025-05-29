@@ -494,7 +494,14 @@
           "Type": "float"
         }
       ],
-      "InstructionSaves": [],
+      "InstructionSaves": [
+        {
+          "Type": "bool",
+          "Member": "IsActive",
+          "Value": false,
+          "Time": 0.0
+        }
+      ],
       "SourceType": 2,
       "SourceFile": "FlatRedBall.Math.Collision.CollidableListVsTileShapeCollectionRelationship<Entities.EnemyBase>",
       "AttachToContainer": true,

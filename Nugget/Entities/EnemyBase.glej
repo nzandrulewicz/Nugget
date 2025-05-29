@@ -84,7 +84,7 @@
         }
       ],
       "Name": "MaxHealth",
-      "DefaultValue": 50.0,
+      "DefaultValue": 30.0,
       "SetByDerived": true,
       "Category": "Damageable"
     },
