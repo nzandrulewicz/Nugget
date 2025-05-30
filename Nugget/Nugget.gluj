@@ -138,7 +138,7 @@
     "AspectRatioWidth": 4.0,
     "AspectRatioHeight": 3.0,
     "SupportLandscape": true,
-    "Scale": 500,
+    "Scale": 200,
     "ScaleGum": 100,
     "DominantInternalCoordinates": 1,
     "TextureFilter": 1

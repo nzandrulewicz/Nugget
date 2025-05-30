@@ -48,7 +48,7 @@
         }
       ],
       "Name": "EnemiesPerSecond",
-      "DefaultValue": 0.2,
+      "DefaultValue": 0.1,
       "SetByDerived": true
     },
     {
@@ -60,7 +60,7 @@
         }
       ],
       "Name": "SpawnRateIncrease",
-      "DefaultValue": 0.015,
+      "DefaultValue": 0.005,
       "SetByDerived": true
     },
     {
@@ -84,7 +84,7 @@
         }
       ],
       "Name": "MaxVelocity",
-      "DefaultValue": 100.0,
+      "DefaultValue": 75.0,
       "SetByDerived": true
     }
   ],

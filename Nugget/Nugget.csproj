@@ -616,6 +616,7 @@
     <Compile Include="TopDown\TopDownAiInput.Generated.cs" />
     <Compile Include="TopDown\TopDownAiTargetLogic.Generated.cs" />
     <Compile Include="TopDown\TopDownAnimationControllerGenerator.Generated.cs" />
+    <Compile Include="Utilities\MathConstants.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Icon.ico" />

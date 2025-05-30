@@ -9,6 +9,9 @@ using FlatRedBall.Graphics.Animation;
 using FlatRedBall.Graphics.Particle;
 using FlatRedBall.Math.Geometry;
 using Microsoft.Xna.Framework;
+using FlatRedBall.Gui;
+using System.Diagnostics;
+using Nugget.Utilities;
 
 namespace Nugget.Entities
 {
@@ -43,32 +46,29 @@ namespace Nugget.Entities
 
         private void CustomActivity()
         {
+            // Initialize cursor to get cursor's current position.
+            var cursor = GuiManager.Cursor;
+
+            // Get mouse cursor position.
+            var cursorX = cursor.WorldX;
+            var cursorY = cursor.WorldY;
+
+            // Get player's current position.
+            var playerX = PlayerRectangle.X;
+            var playerY = PlayerRectangle.Y;
+
+            var deltaX = cursorX - playerX;
+            var deltaY = cursorY - playerY;
+
+            var angleToCursor = Math.Atan2(deltaY, deltaX);
+
+            var numberOfNinetyDegreeSlices = Math.Round(angleToCursor / MathConstants.QuarterCircle) * MathConstants.QuarterCircle;
+
             if (InputManager.Mouse.ButtonDown(Mouse.MouseButtons.LeftButton) && IsAttackAvailable)
             {
+                SwordCollision.Visible = true;
                 LastTimeAttackStarted = TimeManager.CurrentScreenTime;
-
-                // Note - you may want to adjust the rectangle depending on direction facing
-                // For example, you can handle left vs right like this:
-                if (DirectionFacing == TopDownDirection.Right)
-                {
-                    SwordCollision.RelativeX = 16;
-                    SwordCollision.RelativeY = 0;
-                }
-                else if (DirectionFacing == TopDownDirection.Left)
-                {
-                    SwordCollision.RelativeX = -16;
-                    SwordCollision.RelativeY = 0;
-                }
-                else if (DirectionFacing == TopDownDirection.Up)
-                {
-                    SwordCollision.RelativeX = 0;
-                    SwordCollision.RelativeY = 16;
-                }
-                else if (DirectionFacing == TopDownDirection.Down)
-                {
-                    SwordCollision.RelativeX = 0;
-                    SwordCollision.RelativeY = -16;
-                }
+                this.RotationZ = (float)numberOfNinetyDegreeSlices;
             }
 
             SwordCollision.Visible = IsAttackActive;
