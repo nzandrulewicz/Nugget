@@ -347,13 +347,23 @@
     <Compile Include="Entities\EnemySpawner.Generated.cs">
       <DependentUpon>EnemySpawner.cs</DependentUpon>
     </Compile>
+    <Compile Include="Entities\ItemBase.cs" />
+    <Compile Include="Entities\ItemBase.Generated.cs">
+      <DependentUpon>ItemBase.cs</DependentUpon>
+    </Compile>
     <Compile Include="Entities\Player.cs" />
     <Compile Include="Entities\Player.Generated.cs">
       <DependentUpon>Player.cs</DependentUpon>
     </Compile>
+    <Compile Include="Entities\StatHud.cs" />
+    <Compile Include="Entities\StatHud.Generated.cs">
+      <DependentUpon>StatHud.cs</DependentUpon>
+    </Compile>
     <Compile Include="Factories\EnemyBaseFactory.Generated.cs" />
     <Compile Include="Factories\EnemySpawnerFactory.Generated.cs" />
+    <Compile Include="Factories\ItemBaseFactory.Generated.cs" />
     <Compile Include="Factories\PlayerFactory.Generated.cs" />
+    <Compile Include="Factories\StatHudFactory.Generated.cs" />
     <Compile Include="FileAliases.Generated.cs" />
     <Compile Include="Forms\Screens\GameScreenGumForms.Generated.cs" />
     <Compile Include="Forms\Screens\Level1GumForms.Generated.cs" />

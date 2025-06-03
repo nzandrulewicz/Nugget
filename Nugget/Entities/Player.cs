@@ -17,6 +17,9 @@ namespace Nugget.Entities
 {
     public partial class Player
     {
+        // Initiates the number of "items" (probably seeds) the player starts with.
+        public int numberOfItems = 0;
+
         // Give this some large negative value so logic
         // doesn't consider attacks to happen right when 
         // the entity is created
@@ -57,20 +60,39 @@ namespace Nugget.Entities
             var playerX = PlayerRectangle.X;
             var playerY = PlayerRectangle.Y;
 
+            // Cursor's relative position to the player position.
             var deltaX = cursorX - playerX;
             var deltaY = cursorY - playerY;
 
+            // Get the angle from the player's position to the cursor's position in radians.
             var angleToCursor = Math.Atan2(deltaY, deltaX);
 
+            /// <summary>
+            /// There are four, 90 degree slices.
+            /// Top, Down, Left, and Right.
+            /// </summary>
             var numberOfNinetyDegreeSlices = Math.Round(angleToCursor / MathConstants.QuarterCircle) * MathConstants.QuarterCircle;
-
+            
+            // If Left Mouse click and Attack Available
             if (InputManager.Mouse.ButtonDown(Mouse.MouseButtons.LeftButton) && IsAttackAvailable)
             {
-                SwordCollision.Visible = true;
+                // Get the time stamp in seconds since the beginning of the last attack.
                 LastTimeAttackStarted = TimeManager.CurrentScreenTime;
-                this.RotationZ = (float)numberOfNinetyDegreeSlices;
+                // Show SwordCollision
+                SwordCollision.Visible = true;
+                // Stop the player from moving
+                this.CurrentMovement = TopDownValues[DataTypes.TopDownValues.AttackMovement];
+                this.RotationZ = (float) numberOfNinetyDegreeSlices;
             }
 
+            // If the last time the player attacked was 0.25 seconds ago...
+            if (LastTimeAttackStarted < TimeManager.CurrentScreenTime - 0.25)
+            {
+                // Allow the player to start walking again.
+                this.CurrentMovement = TopDownValues[DataTypes.TopDownValues.Default];
+            }
+            
+            // Boolean that shows or hides the sword collision circle.
             SwordCollision.Visible = IsAttackActive;
         }
 

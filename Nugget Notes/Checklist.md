@@ -4,7 +4,8 @@
 - [x] Make enemy do damage to player.
 - [x] Make enemies spawn outside of the game map.
 - [x] Give player directional attack damage.
-- [ ] Make enemy drop object on death.
-- [ ] Allow player pick up objects on ground.
+- [x] Make enemy drop object on death.
+- [x] Allow player pick up objects on ground.
+- [x] Keep count of how many objects the user picks up from the ground.
 - [ ] Allow player to select object.
 - [ ] Allow player to use object.

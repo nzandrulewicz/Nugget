@@ -114,7 +114,13 @@
       "Name": "Entities\\EnemySpawner"
     },
     {
+      "Name": "Entities\\ItemBase"
+    },
+    {
       "Name": "Entities\\Player"
+    },
+    {
+      "Name": "Entities\\StatHud"
     }
   ],
   "Bookmarks": [],

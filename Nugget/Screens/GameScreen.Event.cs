@@ -9,6 +9,7 @@ using Nugget.Entities;
 using Nugget.Screens;
 using System;
 using System.Collections.Specialized;
+using System.Diagnostics;
 namespace Nugget.Screens
 {
     public partial class GameScreen
@@ -46,5 +47,19 @@ namespace Nugget.Screens
                 }
             }
         }
+        
+        /// <summary>
+        /// ALlows player to pick up items that the enemy drops after dying and updates the number of items the user currently has.
+        /// </summary>
+        /// <param name="player"></param>
+        /// <param name="itemBase"></param>
+        void OnPlayerVsItemBaseCollided (Entities.Player player, Entities.ItemBase itemBase) 
+        {
+            player.numberOfItems += 1;
+            var totalItems = player.numberOfItems;
+            StatHud1.ItemCount1 = totalItems;
+            itemBase.Destroy();
+        }
+
     }
 }

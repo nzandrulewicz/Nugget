@@ -28,7 +28,7 @@ namespace Nugget.Entities
 
             // This helps us visualize the path the EnemyBase takes to get to
             // the player
-            topDownAiInput.IsPathVisible = true;
+            topDownAiInput.IsPathVisible = false;
 
             // Use a darker color so it stands out over the bright level tiles
             topDownAiInput.PathColor = Color.Purple;
@@ -62,7 +62,11 @@ namespace Nugget.Entities
         {
             // The top down input path must be made invisible so it cleans up
             // any shapes it creates in the path:
-            topDownAiInput.IsPathVisible = false;
+            // topDownAiInput.IsPathVisible = false;
+
+            ItemBase item = Factories.ItemBaseFactory.CreateNew();
+            item.Position.X = EnemyBaseRectangle.X;
+            item.Position.Y = EnemyBaseRectangle.Y;
         }
 
         private static void CustomLoadStaticContent(string contentManagerName)
