@@ -90,6 +90,12 @@
         },
         {
           "Type": "float",
+          "Member": "TextureScale",
+          "Value": 1.0,
+          "Time": 0.0
+        },
+        {
+          "Type": "float",
           "Member": "X",
           "Value": -160.0,
           "Time": 0.0
@@ -98,12 +104,6 @@
           "Type": "float",
           "Member": "Y",
           "Value": 150.0,
-          "Time": 0.0
-        },
-        {
-          "Type": "float",
-          "Member": "TextureScale",
-          "Value": 1.0,
           "Time": 0.0
         }
       ],
@@ -131,6 +131,12 @@
         },
         {
           "Type": "float",
+          "Member": "TextureScale",
+          "Value": 1.0,
+          "Time": 0.0
+        },
+        {
+          "Type": "float",
           "Member": "X",
           "Value": -200.0,
           "Time": 0.0
@@ -139,12 +145,6 @@
           "Type": "float",
           "Member": "Y",
           "Value": 150.0,
-          "Time": 0.0
-        },
-        {
-          "Type": "float",
-          "Member": "TextureScale",
-          "Value": 1.0,
           "Time": 0.0
         }
       ],

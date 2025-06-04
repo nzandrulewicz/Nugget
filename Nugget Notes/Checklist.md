@@ -7,5 +7,6 @@
 - [x] Make enemy drop object on death.
 - [x] Allow player pick up objects on ground.
 - [x] Keep count of how many objects the user picks up from the ground.
+- [x] Stop player from moving when attacking.
 - [ ] Allow player to select object.
 - [ ] Allow player to use object.

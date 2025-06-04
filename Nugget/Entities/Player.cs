@@ -37,6 +37,8 @@ namespace Nugget.Entities
         public bool IsAttackAvailable =>
                 TimeManager.CurrentScreenSecondsSince(LastTimeAttackStarted) > AttackCooldown;
 
+        Entities.StatHud statHud;
+
         /// <summary>
         /// Initialization logic which is executed only one time for this Entity (unless the Entity is pooled).
         /// This method is called when the Entity is added to managers. Entities which are instantiated but not
@@ -48,6 +50,12 @@ namespace Nugget.Entities
         }
 
         private void CustomActivity()
+        {
+            Attack();
+            PlaceSeed();
+        }
+
+        private void Attack()
         {
             // Initialize cursor to get cursor's current position.
             var cursor = GuiManager.Cursor;
@@ -72,7 +80,7 @@ namespace Nugget.Entities
             /// Top, Down, Left, and Right.
             /// </summary>
             var numberOfNinetyDegreeSlices = Math.Round(angleToCursor / MathConstants.QuarterCircle) * MathConstants.QuarterCircle;
-            
+
             // If Left Mouse click and Attack Available
             if (InputManager.Mouse.ButtonDown(Mouse.MouseButtons.LeftButton) && IsAttackAvailable)
             {
@@ -82,7 +90,7 @@ namespace Nugget.Entities
                 SwordCollision.Visible = true;
                 // Stop the player from moving
                 this.CurrentMovement = TopDownValues[DataTypes.TopDownValues.AttackMovement];
-                this.RotationZ = (float) numberOfNinetyDegreeSlices;
+                this.RotationZ = (float)numberOfNinetyDegreeSlices;
             }
 
             // If the last time the player attacked was 0.25 seconds ago...
@@ -91,9 +99,19 @@ namespace Nugget.Entities
                 // Allow the player to start walking again.
                 this.CurrentMovement = TopDownValues[DataTypes.TopDownValues.Default];
             }
-            
+
             // Boolean that shows or hides the sword collision circle.
             SwordCollision.Visible = IsAttackActive;
+        }
+
+        private void PlaceSeed()
+        {
+            if ((InputManager.Keyboard.KeyDown(Microsoft.Xna.Framework.Input.Keys.D1)))
+            {
+                ItemBase item = Factories.ItemBaseFactory.CreateNew();
+                item.Position.X = 250;
+                item.Position.Y = -250;
+            }
         }
 
         private void CustomDestroy()
