@@ -64,9 +64,9 @@ namespace Nugget.Entities
             // any shapes it creates in the path:
             // topDownAiInput.IsPathVisible = false;
 
-            ItemBase item = Factories.ItemBaseFactory.CreateNew();
-            item.Position.X = EnemyBaseRectangle.X;
-            item.Position.Y = EnemyBaseRectangle.Y;
+            Seed seed = Factories.SeedFactory.CreateNew();
+            seed.Position.X = EnemyBaseRectangle.X;
+            seed.Position.Y = EnemyBaseRectangle.Y;
         }
 
         private static void CustomLoadStaticContent(string contentManagerName)

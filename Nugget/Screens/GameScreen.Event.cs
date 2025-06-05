@@ -52,14 +52,13 @@ namespace Nugget.Screens
         /// ALlows player to pick up items that the enemy drops after dying and updates the number of items the user currently has.
         /// </summary>
         /// <param name="player"></param>
-        /// <param name="itemBase"></param>
-        void OnPlayerVsItemBaseCollided (Entities.Player player, Entities.ItemBase itemBase) 
+        /// <param name="seed"></param>
+        void OnPlayerVsSeedCollided (Entities.Player player, Entities.Seed seed) 
         {
-            player.numberOfItems += 1;
-            var totalItems = player.numberOfItems;
-            StatHud1.ItemCount1 = totalItems;
-            itemBase.Destroy();
+            player.numberOfSeeds += 1;
+            var totalItems = player.numberOfSeeds;
+            StatHud1.SeedCount1 = totalItems;
+            seed.Destroy();
         }
-
     }
 }

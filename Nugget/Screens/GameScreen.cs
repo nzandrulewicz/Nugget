@@ -14,9 +14,7 @@ using FlatRedBall.Math.Geometry;
 using FlatRedBall.Localization;
 using Microsoft.Xna.Framework;
 using Nugget.Entities;
-
-
-
+using System.Diagnostics;
 
 namespace Nugget.Screens
 {
@@ -35,28 +33,54 @@ namespace Nugget.Screens
 
         private void CustomActivity(bool firstTimeCalled)
         {
-            /*
-            FlatRedBallServices.Game.IsMouseVisible = true;
-            if (GuiManager.Cursor.PrimaryClick)
-            {
-                Factories.EnemyBaseFactory.CreateNew(GuiManager.Cursor.WorldPosition);
-            }
-            */
+            PlantSeed();
         }
 
         private void CustomDestroy()
         {
-            
+
         }
 
         private static void CustomLoadStaticContent(string contentManagerName)
         {
-            
+
         }
 
         private void PrepareEnemyPathfinding(EnemyBase enemy)
         {
             enemy.InitializePathfinding(Player1, WalkingNodeNetwork, SolidCollision);
+        }
+
+        private void PlantSeed()
+        {
+            var isOnePressed = InputManager.Keyboard.KeyDown(Microsoft.Xna.Framework.Input.Keys.D1);
+            var isHovering1 = FlatRedBall.Gui.GuiManager.Cursor.IsOn(FarmPlot1.FarmPlotSquare);
+            var isHovering2 = FlatRedBall.Gui.GuiManager.Cursor.IsOn(FarmPlot2.FarmPlotSquare);
+            var isHovering3 = FlatRedBall.Gui.GuiManager.Cursor.IsOn(FarmPlot3.FarmPlotSquare);
+
+            if (isHovering1 && isOnePressed && FarmPlot1.IsPlanted == false)
+            {
+                Plant plant = Factories.PlantFactory.CreateNew();
+                plant.Position.X = FarmPlot1.Position.X;
+                plant.Position.Y = FarmPlot1.Position.Y;
+                FarmPlot1.IsPlanted = true;
+            }
+
+            if (isHovering2 && isOnePressed && FarmPlot2.IsPlanted == false)
+            {
+                Plant plant = Factories.PlantFactory.CreateNew();
+                plant.Position.X = FarmPlot2.Position.X;
+                plant.Position.Y = FarmPlot2.Position.Y;
+                FarmPlot2.IsPlanted = true;
+            }
+
+            if (isHovering3 && isOnePressed && FarmPlot3.IsPlanted == false)
+            {
+                Plant plant = Factories.PlantFactory.CreateNew();
+                plant.Position.X = FarmPlot3.Position.X;
+                plant.Position.Y = FarmPlot3.Position.Y;
+                FarmPlot3.IsPlanted = true;
+            }
         }
     }
 }

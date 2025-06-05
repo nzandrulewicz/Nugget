@@ -135,7 +135,7 @@
       ]
     },
     {
-      "InstanceName": "ItemBaseList",
+      "InstanceName": "SeedList",
       "SourceClassType": "FlatRedBall.Math.PositionedObjectList<T>",
       "Properties": [
         {
@@ -147,7 +147,7 @@
       "InstructionSaves": [],
       "SourceType": 2,
       "SourceFile": "PositionedObjectList (Generic)",
-      "SourceClassGenericType": "Entities\\ItemBase",
+      "SourceClassGenericType": "Entities\\Seed",
       "ExposedInDerived": true,
       "AttachToContainer": true,
       "GenerateTimedEmit": true
@@ -185,6 +185,128 @@
           "SourceFile": "Entities\\StatHud",
           "AttachToContainer": true,
           "AttachToCamera": true,
+          "GenerateTimedEmit": true
+        }
+      ]
+    },
+    {
+      "InstanceName": "PlantList",
+      "SourceClassType": "FlatRedBall.Math.PositionedObjectList<T>",
+      "Properties": [
+        {
+          "Name": "AssociateWithFactory",
+          "Value": true,
+          "Type": "bool"
+        }
+      ],
+      "InstructionSaves": [],
+      "SourceType": 2,
+      "SourceFile": "PositionedObjectList (Generic)",
+      "SourceClassGenericType": "Entities\\Plant",
+      "ExposedInDerived": true,
+      "AttachToContainer": true,
+      "GenerateTimedEmit": true
+    },
+    {
+      "InstanceName": "FarmPlotList",
+      "SourceClassType": "FlatRedBall.Math.PositionedObjectList<T>",
+      "Properties": [
+        {
+          "Name": "AssociateWithFactory",
+          "Value": true,
+          "Type": "bool"
+        }
+      ],
+      "InstructionSaves": [],
+      "SourceType": 2,
+      "SourceFile": "PositionedObjectList (Generic)",
+      "SourceClassGenericType": "Entities\\FarmPlot",
+      "ExposedInDerived": true,
+      "AttachToContainer": true,
+      "GenerateTimedEmit": true,
+      "ContainedObjects": [
+        {
+          "InstanceName": "FarmPlot1",
+          "SourceClassType": "Entities\\FarmPlot",
+          "Properties": [
+            {
+              "Name": "AssociateWithFactory",
+              "Value": true,
+              "Type": "bool"
+            }
+          ],
+          "InstructionSaves": [
+            {
+              "Type": "float",
+              "Member": "X",
+              "Value": 168.0,
+              "Time": 0.0
+            },
+            {
+              "Type": "float",
+              "Member": "Y",
+              "Value": -168.0,
+              "Time": 0.0
+            }
+          ],
+          "SourceType": 1,
+          "AttachToContainer": true,
+          "GenerateTimedEmit": true
+        },
+        {
+          "InstanceName": "FarmPlot2",
+          "SourceClassType": "Entities\\FarmPlot",
+          "Properties": [
+            {
+              "Name": "AssociateWithFactory",
+              "Value": true,
+              "Type": "bool"
+            }
+          ],
+          "InstructionSaves": [
+            {
+              "Type": "float",
+              "Member": "X",
+              "Value": 200.0,
+              "Time": 0.0
+            },
+            {
+              "Type": "float",
+              "Member": "Y",
+              "Value": -168.0,
+              "Time": 0.0
+            }
+          ],
+          "SourceType": 1,
+          "AttachToContainer": true,
+          "GenerateTimedEmit": true
+        },
+        {
+          "InstanceName": "FarmPlot3",
+          "SourceClassType": "Entities\\FarmPlot",
+          "Properties": [
+            {
+              "Name": "AssociateWithFactory",
+              "Value": true,
+              "Type": "bool"
+            }
+          ],
+          "InstructionSaves": [
+            {
+              "Type": "float",
+              "Member": "X",
+              "Value": 232.0,
+              "Time": 0.0
+            },
+            {
+              "Type": "float",
+              "Member": "Y",
+              "Value": -168.0,
+              "Time": 0.0
+            }
+          ],
+          "SourceType": 1,
+          "AttachToContainer": true,
           "GenerateTimedEmit": true
         }
       ]
@@ -435,8 +557,8 @@
       "GenerateTimedEmit": true
     },
     {
-      "InstanceName": "PlayerVsItemBase",
-      "SourceClassType": "FlatRedBall.Math.Collision.ListVsListRelationship<Entities.Player, Entities.ItemBase>",
+      "InstanceName": "PlayerVsSeed",
+      "SourceClassType": "FlatRedBall.Math.Collision.ListVsListRelationship<Entities.Player, Entities.Seed>",
       "Properties": [
         {
           "Name": "AssociateWithFactory",
@@ -455,7 +577,7 @@
         },
         {
           "Name": "SecondCollisionName",
-          "Value": "ItemBaseList",
+          "Value": "SeedList",
           "Type": "String"
         },
         {
@@ -660,8 +782,8 @@
       "SourceObjectEvent": "CollisionOccurred"
     },
     {
-      "EventName": "PlayerVsItemBaseCollided",
-      "SourceObject": "PlayerVsItemBase",
+      "EventName": "PlayerVsSeedCollided",
+      "SourceObject": "PlayerVsSeed",
       "SourceObjectEvent": "CollisionOccurred"
     }
   ],

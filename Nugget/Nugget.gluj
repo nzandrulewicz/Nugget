@@ -114,10 +114,16 @@
       "Name": "Entities\\EnemySpawner"
     },
     {
-      "Name": "Entities\\ItemBase"
+      "Name": "Entities\\FarmPlot"
+    },
+    {
+      "Name": "Entities\\Plant"
     },
     {
       "Name": "Entities\\Player"
+    },
+    {
+      "Name": "Entities\\Seed"
     },
     {
       "Name": "Entities\\StatHud"

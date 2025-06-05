@@ -62,17 +62,17 @@
           "Type": "String"
         }
       ],
-      "Name": "ItemCount1",
+      "Name": "SeedCount1",
       "DefaultValue": 0,
       "SetByDerived": true,
-      "SourceObject": "ItemCount",
+      "SourceObject": "SeedCount",
       "SourceObjectProperty": "DisplayText",
       "Category": "Text"
     }
   ],
   "NamedObjects": [
     {
-      "InstanceName": "ItemCount",
+      "InstanceName": "SeedCount",
       "SourceClassType": "FlatRedBall.Graphics.Text",
       "Properties": [
         {
@@ -97,7 +97,7 @@
         {
           "Type": "float",
           "Member": "X",
-          "Value": -160.0,
+          "Value": -150.0,
           "Time": 0.0
         },
         {
@@ -113,7 +113,7 @@
       "GenerateTimedEmit": true
     },
     {
-      "InstanceName": "ItemCountLabel",
+      "InstanceName": "SeedCountLabel",
       "SourceClassType": "FlatRedBall.Graphics.Text",
       "Properties": [
         {
@@ -126,7 +126,7 @@
         {
           "Type": "string",
           "Member": "DisplayText",
-          "Value": "Items:",
+          "Value": "Seeds:",
           "Time": 0.0
         },
         {

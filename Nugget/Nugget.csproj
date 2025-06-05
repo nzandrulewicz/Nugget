@@ -347,8 +347,16 @@
     <Compile Include="Entities\EnemySpawner.Generated.cs">
       <DependentUpon>EnemySpawner.cs</DependentUpon>
     </Compile>
-    <Compile Include="Entities\ItemBase.cs" />
-    <Compile Include="Entities\ItemBase.Generated.cs">
+    <Compile Include="Entities\FarmPlot.cs" />
+    <Compile Include="Entities\FarmPlot.Generated.cs">
+      <DependentUpon>FarmPlot.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Plant.cs" />
+    <Compile Include="Entities\Plant.Generated.cs">
+      <DependentUpon>Plant.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Seed.cs" />
+    <Compile Include="Entities\Seed.Generated.cs">
       <DependentUpon>ItemBase.cs</DependentUpon>
     </Compile>
     <Compile Include="Entities\Player.cs" />
@@ -361,7 +369,9 @@
     </Compile>
     <Compile Include="Factories\EnemyBaseFactory.Generated.cs" />
     <Compile Include="Factories\EnemySpawnerFactory.Generated.cs" />
-    <Compile Include="Factories\ItemBaseFactory.Generated.cs" />
+    <Compile Include="Factories\FarmPlotFactory.Generated.cs" />
+    <Compile Include="Factories\PlantFactory.Generated.cs" />
+    <Compile Include="Factories\SeedFactory.Generated.cs" />
     <Compile Include="Factories\PlayerFactory.Generated.cs" />
     <Compile Include="Factories\StatHudFactory.Generated.cs" />
     <Compile Include="FileAliases.Generated.cs" />

@@ -49,7 +49,7 @@
   ],
   "NamedObjects": [
     {
-      "InstanceName": "ItemBaseCircle",
+      "InstanceName": "SeedCircle",
       "SourceClassType": "FlatRedBall.Math.Geometry.Circle",
       "Properties": [
         {
@@ -73,6 +73,6 @@
       "GenerateTimedEmit": true
     }
   ],
-  "Name": "Entities\\ItemBase",
+  "Name": "Entities\\Seed",
   "CustomClassesForExport": []
 }

@@ -12,7 +12,7 @@ using Microsoft.Xna.Framework;
 
 namespace Nugget.Entities
 {
-    public partial class ItemBase
+    public partial class FarmPlot
     {
         /// <summary>
         /// Initialization logic which is executed only one time for this Entity (unless the Entity is pooled).

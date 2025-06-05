@@ -18,7 +18,7 @@ namespace Nugget.Entities
     public partial class Player
     {
         // Initiates the number of "items" (probably seeds) the player starts with.
-        public int numberOfItems = 0;
+        public int numberOfSeeds = 0;
 
         // Give this some large negative value so logic
         // doesn't consider attacks to happen right when 
@@ -37,8 +37,6 @@ namespace Nugget.Entities
         public bool IsAttackAvailable =>
                 TimeManager.CurrentScreenSecondsSince(LastTimeAttackStarted) > AttackCooldown;
 
-        Entities.StatHud statHud;
-
         /// <summary>
         /// Initialization logic which is executed only one time for this Entity (unless the Entity is pooled).
         /// This method is called when the Entity is added to managers. Entities which are instantiated but not
@@ -52,7 +50,6 @@ namespace Nugget.Entities
         private void CustomActivity()
         {
             Attack();
-            PlaceSeed();
         }
 
         private void Attack()
@@ -102,16 +99,6 @@ namespace Nugget.Entities
 
             // Boolean that shows or hides the sword collision circle.
             SwordCollision.Visible = IsAttackActive;
-        }
-
-        private void PlaceSeed()
-        {
-            if ((InputManager.Keyboard.KeyDown(Microsoft.Xna.Framework.Input.Keys.D1)))
-            {
-                ItemBase item = Factories.ItemBaseFactory.CreateNew();
-                item.Position.X = 250;
-                item.Position.Y = -250;
-            }
         }
 
         private void CustomDestroy()
