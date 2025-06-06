@@ -20,8 +20,17 @@ namespace Nugget.Screens
 {
     public partial class GameScreen
     {
+        /// <summary>
+        /// Grabs the number of seeds the player is currently holding.
+        /// </summary>
+        int iTotalSeeds;
+
         private void CustomInitialize()
         {
+            // Text for SeedCount text view in the game.
+            // SeedCount is in DataTypes > PlayerData.cs
+            this.TextInstance.Text = "0";
+
             // This foreach handles enemies created before the screen's initialize.
             foreach (var enemy in EnemyBaseList)
             {
@@ -33,7 +42,36 @@ namespace Nugget.Screens
 
         private void CustomActivity(bool firstTimeCalled)
         {
-            PlantSeed();
+            iTotalSeeds = DataTypes.GlobalData.PlayerData.SeedCount;
+
+            // Check when "1" is pressed on the keyboard.
+            var isOnePressed = InputManager.Keyboard.KeyDown(Microsoft.Xna.Framework.Input.Keys.D1);
+
+            // Checks if the mouse cursor is hovering over the Farm Plots.
+            var isHovering1 = FlatRedBall.Gui.GuiManager.Cursor.IsOn(FarmPlot1.FarmPlotSquare);
+            var isHovering2 = FlatRedBall.Gui.GuiManager.Cursor.IsOn(FarmPlot2.FarmPlotSquare);
+            var isHovering3 = FlatRedBall.Gui.GuiManager.Cursor.IsOn(FarmPlot3.FarmPlotSquare);
+
+            // If 1 is pressed and Player has seeds...
+            if (isOnePressed && iTotalSeeds > 0)
+            {
+                // If hovering over FarmPlot1 and FarmPlot1 is not planted...
+                if (isHovering1 && FarmPlot1.IsPlanted == false)
+                {
+                    PlantSeed(FarmPlot1);
+                }
+                // If hovering over FarmPlot2 and FarmPlot2 is not planted...
+                else if (isHovering2 && FarmPlot2.IsPlanted == false)
+                {
+                    PlantSeed(FarmPlot2);
+                }
+                // If hovering over FarmPlot2 and FarmPlot2 is not planted...
+                else if (isHovering3 && FarmPlot3.IsPlanted == false)
+                {
+                    PlantSeed(FarmPlot3);
+                }
+            }
+            
         }
 
         private void CustomDestroy()
@@ -51,36 +89,21 @@ namespace Nugget.Screens
             enemy.InitializePathfinding(Player1, WalkingNodeNetwork, SolidCollision);
         }
 
-        private void PlantSeed()
+        /// <summary>
+        /// Plants a seed in a FarmPlot when the mouse is hovering over a specific farm plot that hasn't been planted yet.
+        /// Called from CustomActivity
+        /// </summary>
+        private void PlantSeed(FarmPlot pFarmPlot)
         {
-            var isOnePressed = InputManager.Keyboard.KeyDown(Microsoft.Xna.Framework.Input.Keys.D1);
-            var isHovering1 = FlatRedBall.Gui.GuiManager.Cursor.IsOn(FarmPlot1.FarmPlotSquare);
-            var isHovering2 = FlatRedBall.Gui.GuiManager.Cursor.IsOn(FarmPlot2.FarmPlotSquare);
-            var isHovering3 = FlatRedBall.Gui.GuiManager.Cursor.IsOn(FarmPlot3.FarmPlotSquare);
+            // Create a new plant inside the pFarmPlot
+            Plant plant = Factories.PlantFactory.CreateNew();
+            plant.Position.X = pFarmPlot.Position.X;
+            plant.Position.Y = pFarmPlot.Position.Y;
+            pFarmPlot.IsPlanted = true;
 
-            if (isHovering1 && isOnePressed && FarmPlot1.IsPlanted == false)
-            {
-                Plant plant = Factories.PlantFactory.CreateNew();
-                plant.Position.X = FarmPlot1.Position.X;
-                plant.Position.Y = FarmPlot1.Position.Y;
-                FarmPlot1.IsPlanted = true;
-            }
-
-            if (isHovering2 && isOnePressed && FarmPlot2.IsPlanted == false)
-            {
-                Plant plant = Factories.PlantFactory.CreateNew();
-                plant.Position.X = FarmPlot2.Position.X;
-                plant.Position.Y = FarmPlot2.Position.Y;
-                FarmPlot2.IsPlanted = true;
-            }
-
-            if (isHovering3 && isOnePressed && FarmPlot3.IsPlanted == false)
-            {
-                Plant plant = Factories.PlantFactory.CreateNew();
-                plant.Position.X = FarmPlot3.Position.X;
-                plant.Position.Y = FarmPlot3.Position.Y;
-                FarmPlot3.IsPlanted = true;
-            }
+            // Subtract 1 seed from the total of seeds the player is currently holding.
+            DataTypes.GlobalData.PlayerData.SeedCount -= 1;
+            this.TextInstance.Text = DataTypes.GlobalData.PlayerData.SeedCount.ToString();
         }
     }
 }

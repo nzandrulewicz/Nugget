@@ -1,0 +1,62 @@
+{
+  "UserEvents": {
+    "21d017c40a91c15748f0b98cd826ba445d2d3fe227e310bfd58dcb6c431826a0": [
+      {
+        "NewName": "GameScreenGum.TextInstance",
+        "OldName": null,
+        "ElementType": "Screens",
+        "EventType": 5,
+        "TimestampUtc": "2025-06-05T17:25:36.1788655Z"
+      },
+      {
+        "NewName": "PlayerHealthBar",
+        "OldName": null,
+        "ElementType": "Components",
+        "EventType": 0,
+        "TimestampUtc": "2025-06-06T15:01:05.8768522Z"
+      },
+      {
+        "NewName": "PlayerHealthBar (Container).ColoredRectangleInstance",
+        "OldName": null,
+        "ElementType": "Components",
+        "EventType": 5,
+        "TimestampUtc": "2025-06-06T15:06:37.5692143Z"
+      },
+      {
+        "NewName": "PlayerHealthBar (Container).Background",
+        "OldName": "PlayerHealthBar (Container).ColoredRectangleInstance",
+        "ElementType": "Components",
+        "EventType": 7,
+        "TimestampUtc": "2025-06-06T15:06:56.0243416Z"
+      },
+      {
+        "NewName": "PlayerHealthBar (Container).ColoredRectangleInstance",
+        "OldName": null,
+        "ElementType": "Components",
+        "EventType": 5,
+        "TimestampUtc": "2025-06-06T15:07:09.8287908Z"
+      },
+      {
+        "NewName": "PlayerHealthBar (Container).Background",
+        "OldName": "PlayerHealthBar (Container).ColoredRectangleInstance",
+        "ElementType": "Components",
+        "EventType": 7,
+        "TimestampUtc": "2025-06-06T15:07:30.5084853Z"
+      },
+      {
+        "NewName": "PlayerHealthBar (Container).ColoredRectangleInstance",
+        "OldName": null,
+        "ElementType": "Components",
+        "EventType": 5,
+        "TimestampUtc": "2025-06-06T15:09:18.3599328Z"
+      },
+      {
+        "NewName": "PlayerHealthBar (Container).Foreground",
+        "OldName": "PlayerHealthBar (Container).ColoredRectangleInstance",
+        "ElementType": "Components",
+        "EventType": 7,
+        "TimestampUtc": "2025-06-06T15:09:25.9107743Z"
+      }
+    ]
+  }
+}

@@ -55,10 +55,11 @@ namespace Nugget.Screens
         /// <param name="seed"></param>
         void OnPlayerVsSeedCollided (Entities.Player player, Entities.Seed seed) 
         {
-            player.numberOfSeeds += 1;
-            var totalItems = player.numberOfSeeds;
-            StatHud1.SeedCount1 = totalItems;
+            // Remove instance of seed from game.
             seed.Destroy();
+
+            DataTypes.GlobalData.PlayerData.SeedCount += 1;
+            this.TextInstance.Text = DataTypes.GlobalData.PlayerData.SeedCount.ToString();
         }
     }
 }

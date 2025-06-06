@@ -8,5 +8,7 @@
 - [x] Allow player pick up objects on ground.
 - [x] Keep count of how many objects the user picks up from the ground.
 - [x] Stop player from moving when attacking.
-- [ ] Allow player to select object.
-- [ ] Allow player to use object.
+- [x] Allow player to plant seeds if player has enough.
+- [x] Grow the seed by turning it red to green after some amount of time.
+- [x] Remove 1 seed the player is holding after player plants the seed.
+- [ ] Add health bar to player.

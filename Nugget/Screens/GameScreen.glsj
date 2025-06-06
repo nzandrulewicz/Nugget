@@ -153,43 +153,6 @@
       "GenerateTimedEmit": true
     },
     {
-      "InstanceName": "StatHudList",
-      "SourceClassType": "FlatRedBall.Math.PositionedObjectList<T>",
-      "Properties": [
-        {
-          "Name": "AssociateWithFactory",
-          "Value": true,
-          "Type": "bool"
-        }
-      ],
-      "InstructionSaves": [],
-      "SourceType": 2,
-      "SourceFile": "PositionedObjectList (Generic)",
-      "SourceClassGenericType": "Entities\\StatHud",
-      "ExposedInDerived": true,
-      "AttachToContainer": true,
-      "GenerateTimedEmit": true,
-      "ContainedObjects": [
-        {
-          "InstanceName": "StatHud1",
-          "SourceClassType": "Entities\\StatHud",
-          "Properties": [
-            {
-              "Name": "AssociateWithFactory",
-              "Value": true,
-              "Type": "bool"
-            }
-          ],
-          "InstructionSaves": [],
-          "SourceType": 1,
-          "SourceFile": "Entities\\StatHud",
-          "AttachToContainer": true,
-          "AttachToCamera": true,
-          "GenerateTimedEmit": true
-        }
-      ]
-    },
-    {
       "InstanceName": "PlantList",
       "SourceClassType": "FlatRedBall.Math.PositionedObjectList<T>",
       "Properties": [
@@ -765,6 +728,21 @@
       ],
       "SourceType": 2,
       "SourceFile": "TileNodeNetwork",
+      "AttachToContainer": true,
+      "GenerateTimedEmit": true
+    },
+    {
+      "InstanceName": "TextInstance",
+      "Properties": [
+        {
+          "Name": "AssociateWithFactory",
+          "Value": true,
+          "Type": "bool"
+        }
+      ],
+      "InstructionSaves": [],
+      "SourceFile": "GumProject/Screens/GameScreenGum.gusx",
+      "SourceName": "TextInstance (Nugget.GumRuntimes.TextRuntime)",
       "AttachToContainer": true,
       "GenerateTimedEmit": true
     }

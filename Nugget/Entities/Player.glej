@@ -295,6 +295,22 @@
       "AttachToContainer": true,
       "GenerateTimedEmit": true,
       "IncludeInICollidable": false
+    },
+    {
+      "InstanceName": "PlayerHealthBarRuntimeInstance",
+      "SourceClassType": "Nugget.GumRuntimes.PlayerHealthBarRuntime",
+      "Properties": [
+        {
+          "Name": "AssociateWithFactory",
+          "Value": true,
+          "Type": "bool"
+        }
+      ],
+      "InstructionSaves": [],
+      "SourceType": 3,
+      "SourceFile": "PlayerHealthBarRuntime",
+      "AttachToContainer": true,
+      "GenerateTimedEmit": true
     }
   ],
   "Name": "Entities\\Player",

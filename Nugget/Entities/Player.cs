@@ -16,10 +16,7 @@ using Nugget.Utilities;
 namespace Nugget.Entities
 {
     public partial class Player
-    {
-        // Initiates the number of "items" (probably seeds) the player starts with.
-        public int numberOfSeeds = 0;
-
+    {        
         // Give this some large negative value so logic
         // doesn't consider attacks to happen right when 
         // the entity is created
@@ -44,6 +41,10 @@ namespace Nugget.Entities
         /// </summary>
         private void CustomInitialize()
         {
+            // Prevents the PlayerHealthBar from rotating with the player.
+            var hudParent = gumAttachmentWrappers[0];
+            hudParent.ParentRotationChangesRotation = false;
+
             SwordCollision.Visible = false;
         }
 

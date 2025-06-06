@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ComponentSave xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<ComponentSave xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <Name>Controls/TreeViewToggle</Name>
   <BaseType>Container</BaseType>
   <State>
@@ -67,6 +67,7 @@
     <Variable>
       <Type>State</Type>
       <Name>State</Name>
+      <Category>States and Visibility</Category>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -89,7 +90,6 @@
   </State>
   <Category>
     <Name>ToggleCategory</Name>
-    <IsSetRecursively>false</IsSetRecursively>
     <State>
       <Name>EnabledOn</Name>
       <Variable>

@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<StandardElementSave xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<StandardElementSave xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <Name>NineSlice</Name>
   <State>
     <Name>Default</Name>
@@ -8,6 +8,13 @@
       <Name>Alpha</Name>
       <Value xsi:type="xsd:int">255</Value>
       <Category>Rendering</Category>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>bool</Type>
+      <Name>Animate</Name>
+      <Value xsi:type="xsd:boolean">false</Value>
+      <Category>Animation</Category>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -28,6 +35,12 @@
       <Type>ColorCategory</Type>
       <Name>ColorCategoryState</Name>
       <SetsValue>false</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>string</Type>
+      <Name>CurrentChainName</Name>
+      <Category>Animation</Category>
+      <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>float?</Type>
@@ -90,6 +103,30 @@
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
+      <Type>float?</Type>
+      <Name>MaxHeight</Name>
+      <Category>Dimensions</Category>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float?</Type>
+      <Name>MaxWidth</Name>
+      <Category>Dimensions</Category>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float?</Type>
+      <Name>MinHeight</Name>
+      <Category>Dimensions</Category>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float?</Type>
+      <Name>MinWidth</Name>
+      <Category>Dimensions</Category>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
       <Type>string</Type>
       <Name>Parent</Name>
       <Category>Parent</Category>
@@ -114,12 +151,14 @@
       <Type>string</Type>
       <Name>SourceFile</Name>
       <Value xsi:type="xsd:string">UISpriteSheet.png</Value>
+      <Category>Source</Category>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>State</Type>
       <Name>State</Name>
       <Value xsi:type="xsd:string">Default</Value>
+      <Category>States and Visibility</Category>
       <SetsValue>false</SetsValue>
     </Variable>
     <Variable>
@@ -166,6 +205,7 @@
       <Type>bool</Type>
       <Name>Visible</Name>
       <Value xsi:type="xsd:boolean">true</Value>
+      <Category>States and Visibility</Category>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -242,7 +282,6 @@
   </State>
   <Category>
     <Name>ColorCategory</Name>
-    <IsSetRecursively>false</IsSetRecursively>
     <State>
       <Name>Black</Name>
       <Variable>
@@ -531,7 +570,6 @@
   </Category>
   <Category>
     <Name>StyleCategory</Name>
-    <IsSetRecursively>false</IsSetRecursively>
     <State>
       <Name>Solid</Name>
       <Variable>
