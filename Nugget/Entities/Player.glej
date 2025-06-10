@@ -53,138 +53,18 @@
       ],
       "Name": "Z",
       "SetByDerived": true
-    },
-    {
-      "Properties": [
-        {
-          "Name": "Type",
-          "Value": "int",
-          "Type": "String"
-        },
-        {
-          "Name": "CreatesProperties",
-          "Value": true,
-          "Type": "bool"
-        }
-      ],
-      "Name": "TeamIndex",
-      "DefaultValue": 0,
-      "SetByDerived": true
-    },
-    {
-      "Properties": [
-        {
-          "Name": "Type",
-          "Value": "decimal",
-          "Type": "String"
-        },
-        {
-          "Name": "CreatesProperties",
-          "Value": true,
-          "Type": "bool"
-        },
-        {
-          "Name": "Category",
-          "Value": "Damageable",
-          "Type": "String"
-        }
-      ],
-      "Name": "MaxHealth",
-      "DefaultValue": 100.0,
-      "SetByDerived": true,
-      "Category": "Damageable"
-    },
-    {
-      "Properties": [
-        {
-          "Name": "Type",
-          "Value": "double",
-          "Type": "String"
-        },
-        {
-          "Name": "CreatesProperties",
-          "Value": true,
-          "Type": "bool"
-        },
-        {
-          "Name": "Category",
-          "Value": "Damageable",
-          "Type": "String"
-        }
-      ],
-      "Name": "InvulnerabilityTimeAfterDamage",
-      "DefaultValue": 1.0,
-      "SetByDerived": true,
-      "Category": "Damageable"
-    },
-    {
-      "Properties": [
-        {
-          "Name": "Type",
-          "Value": "double",
-          "Type": "String"
-        },
-        {
-          "Name": "CreatesProperties",
-          "Value": true,
-          "Type": "bool"
-        },
-        {
-          "Name": "Category",
-          "Value": "Damage Dealing",
-          "Type": "String"
-        }
-      ],
-      "Name": "SecondsBetweenDamage",
-      "DefaultValue": 0.0,
-      "SetByDerived": true,
-      "Summary": "The number of seconds between dealing damage to the same object. 0 means every frame.",
-      "Category": "Damage Dealing"
-    },
-    {
-      "Properties": [
-        {
-          "Name": "Type",
-          "Value": "decimal",
-          "Type": "String"
-        },
-        {
-          "Name": "CreatesProperties",
-          "Value": true,
-          "Type": "bool"
-        },
-        {
-          "Name": "Category",
-          "Value": "Damage Dealing",
-          "Type": "String"
-        }
-      ],
-      "Name": "DamageToDeal",
-      "DefaultValue": 10.0,
-      "SetByDerived": true,
-      "Category": "Damage Dealing"
     }
   ],
   "Properties": [
-    {
-      "Name": "ImplementsICollidable",
-      "Value": true,
-      "Type": "bool"
-    },
-    {
-      "Name": "ImplementsIDamageable",
-      "Value": true,
-      "Type": "bool"
-    },
     {
       "Name": "IsTopDown",
       "Value": true,
       "Type": "bool"
     },
     {
-      "Name": "ImplementsIDamageArea",
+      "Name": "ImplementsICollidable",
       "Value": true,
-      "Type": "Object"
+      "Type": "bool"
     }
   ],
   "NamedObjects": [

@@ -14,13 +14,13 @@ namespace Nugget.Entities
 {
     public partial class EnemySpawner
     {
-        double lastSpawnTime;
-        bool IsTimeToSpawn
+        double dLastSpawnTime;
+        bool bIsTimeToSpawn
         {
             get
             {
                 float spawnFrequency = 1 / EnemiesPerSecond;
-                return TimeManager.CurrentScreenSecondsSince(lastSpawnTime) > spawnFrequency;
+                return TimeManager.CurrentScreenSecondsSince(dLastSpawnTime) > spawnFrequency;
             }
         }
 
@@ -36,7 +36,7 @@ namespace Nugget.Entities
 
         private void CustomActivity()
         {
-            if (IsTimeToSpawn)
+            if (bIsTimeToSpawn)
             {
                 PerformSpawn();
             }
@@ -50,11 +50,11 @@ namespace Nugget.Entities
             Vector3 position = GetRandomEnemyPosition();
             Vector3 velocity = GetRandomEnemyVelocity(position);
 
-            EnemyBase enemy = Factories.EnemyBaseFactory.CreateNew();
+            Enemy enemy = Factories.EnemyFactory.CreateNew();
             enemy.Position = position;
             enemy.Velocity = velocity;
 
-            lastSpawnTime = TimeManager.CurrentScreenTime;
+            dLastSpawnTime = TimeManager.CurrentScreenTime;
         }
 
         private Vector3 GetRandomEnemyPosition()
@@ -62,78 +62,78 @@ namespace Nugget.Entities
             // 1. Pick the top, right, bottom, or left.  These values will be 0, 1, 2, 3 respectively
 
             // The argument 4 is exclusive, so this will return 0,1,2, or 3
-            int randomSide = FlatRedBallServices.Random.Next(4);
+            int iRandomSide = FlatRedBallServices.Random.Next(4);
 
             // 2. Pick a random point on the side.  We'll do this by getting min and max X and Y values.  
             // Two of the values will always be the same.  
             // In other words, the min and max X on the left side will always be equal.
 
             // Let's get the absolute coordinates of the edge of the screen:
-            float topEdge = Camera.Main.AbsoluteTopYEdgeAt(0);
-            float bottomEdge = Camera.Main.AbsoluteBottomYEdgeAt(0);
-            float leftEdge = Camera.Main.AbsoluteLeftXEdgeAt(0);
-            float rightEdge = Camera.Main.AbsoluteRightXEdgeAt(0);
+            float fTopEdge = Camera.Main.AbsoluteTopYEdgeAt(0);
+            float fBottomEdge = Camera.Main.AbsoluteBottomYEdgeAt(0);
+            float fLeftEdge = Camera.Main.AbsoluteLeftXEdgeAt(0);
+            float fRightEdge = Camera.Main.AbsoluteRightXEdgeAt(0);
 
             // Now let's set the values according to randomSide
-            float minX = 0;
-            float maxX = 0;
-            float minY = 0;
-            float maxY = 0;
-            switch (randomSide)
+            float fMinX = 0;
+            float fMaxX = 0;
+            float fMinY = 0;
+            float fMaxY = 0;
+            switch (iRandomSide)
             {
                 case 0: // top
-                    minX = leftEdge;
-                    maxX = rightEdge;
-                    minY = topEdge;
-                    maxY = topEdge;
+                    fMinX = fLeftEdge;
+                    fMaxX = fRightEdge;
+                    fMinY = fTopEdge;
+                    fMaxY = fTopEdge;
                     break;
                 case 1: // right
-                    minX = rightEdge;
-                    maxX = rightEdge;
-                    minY = bottomEdge;
-                    maxY = topEdge;
+                    fMinX = fRightEdge;
+                    fMaxX = fRightEdge;
+                    fMinY = fBottomEdge;
+                    fMaxY = fTopEdge;
                     break;
                 case 2: // bottom
-                    minX = leftEdge;
-                    maxX = rightEdge;
-                    minY = bottomEdge;
-                    maxY = bottomEdge;
+                    fMinX = fLeftEdge;
+                    fMaxX = fRightEdge;
+                    fMinY = fBottomEdge;
+                    fMaxY = fBottomEdge;
                     break;
                 case 3: // left
-                    minX = leftEdge;
-                    maxX = leftEdge;
-                    minY = bottomEdge;
-                    maxY = topEdge;
+                    fMinX = fLeftEdge;
+                    fMaxX = fLeftEdge;
+                    fMinY = fBottomEdge;
+                    fMaxY = fTopEdge;
                     break;
             }
 
             // Now we can pick our point randomly using the min and max values:
-            float offScreenX = FlatRedBallServices.Random.Between(minX, maxX);
-            float offScreenY = FlatRedBallServices.Random.Between(minY, maxY);
+            float fOffScreenX = FlatRedBallServices.Random.Between(fMinX, fMaxX);
+            float fOffScreenY = FlatRedBallServices.Random.Between(fMinY, fMaxY);
 
             // 3.  Finally we move the point off-screen, since the value right now will be right on the border
 
             // Our largest Rock is 128x128.  Since rocks are positioned at their center, we only need
             // to move half of that amount (64) to guarantee that rocks spawn fully off-screen.
-            float amountToMoveBy = 64;
-            switch (randomSide)
+            float fAmountToMoveBy = 64;
+            switch (iRandomSide)
             {
                 case 0: // top
-                    offScreenY += amountToMoveBy;
+                    fOffScreenY += fAmountToMoveBy;
                     break;
                 case 1: // right
-                    offScreenX += amountToMoveBy;
+                    fOffScreenX += fAmountToMoveBy;
                     break;
                 case 2: // bottom
-                    offScreenY -= amountToMoveBy;
+                    fOffScreenY -= fAmountToMoveBy;
                     break;
                 case 3: // left
-                    offScreenX -= amountToMoveBy;
+                    fOffScreenX -= fAmountToMoveBy;
                     break;
             }
 
             // Now we can return the value
-            return new Vector3(offScreenX, offScreenY, 0);
+            return new Vector3(fOffScreenX, fOffScreenY, 0);
         }
 
         private Vector3 GetRandomEnemyVelocity(Vector3 position)
@@ -144,21 +144,21 @@ namespace Nugget.Entities
             // by subtracting the argument position from the very center of our game screen.
             // We get the center by using the Camera's X and Y, but not its Z, because the camera is
             // positioned above the game screen looking down at it.
-            Vector3 centerOfGameScreen = new Vector3(Camera.Main.X, Camera.Main.Y, 0);
+            Vector3 v3CenterOfGameScreen = new Vector3(Camera.Main.X, Camera.Main.Y, 0);
 
             // 2.  Get the direction towards the center of the screen
-            Vector3 directionToCenter = centerOfGameScreen - position;
+            Vector3 v3DirectionToCenter = v3CenterOfGameScreen - position;
 
             // 3.  Normalize the direction, then multiply it by the desired speed.
             // We "normalize" it, which means we make the vector have a length of 1
             // Once it is normalized, we can multiply it by the speed that we want
             // the Rock to move at to get to get the final Velocity value
-            directionToCenter.Normalize();
+            v3DirectionToCenter.Normalize();
 
-            float speed = MinVelocity +
+            float fSpeed = MinVelocity +
                 FlatRedBallServices.Random.Between(MinVelocity, MaxVelocity);
 
-            return speed * directionToCenter;
+            return fSpeed * v3DirectionToCenter;
         }
 
         private void CustomDestroy()

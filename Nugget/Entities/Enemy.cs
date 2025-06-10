@@ -10,12 +10,14 @@ using FlatRedBall.Graphics.Particle;
 using FlatRedBall.Math.Geometry;
 using Microsoft.Xna.Framework;
 using Nugget.TopDown;
+using Nugget.DataTypes;
+using System.Diagnostics;
 
 namespace Nugget.Entities
 {
-    public partial class EnemyBase
+    public partial class Enemy
     {
-        TopDownAiInput<EnemyBase> topDownAiInput;
+        TopDownAiInput<Enemy> topDownAiInput;
 
         /// <summary>
         /// Initialization logic which is executed only one time for this Entity (unless the Entity is pooled).
@@ -24,7 +26,7 @@ namespace Nugget.Entities
         /// </summary>
         private void CustomInitialize()
         {
-            topDownAiInput = new TopDownAiInput<EnemyBase>(this);
+            topDownAiInput = new TopDownAiInput<Enemy>(this);
 
             // This helps us visualize the path the EnemyBase takes to get to
             // the player
@@ -36,16 +38,31 @@ namespace Nugget.Entities
         }
 
         // Initialize it to a large negative number so the path updates immediately
-        double lastTimePathUpdates = -999;
+        double dLastTimePathUpdates = -999;
 
         // How often the path should update. We do this to improve performance
-        double pathUpdateFrequency = 1;
+        double dPathUpdateFrequency = 1;
+
+        /// <summary>
+        /// Damage to deal on collide.
+        /// </summary>
+        public int iEnemyAttackDamage = 10;
+
+        /// <summary>
+        /// Enemy health.
+        /// </summary>
+        public int iEnemyCurrentHealth = 30;
+
+        /// <summary>
+        /// Keeps track of how long (in seconds) since the enemy last received damage.
+        /// </summary>
+        float fTimeSinceLastDamage;
 
         private void CustomActivity()
         {
-            if (TimeManager.CurrentScreenSecondsSince(lastTimePathUpdates) > pathUpdateFrequency)
+            if (TimeManager.CurrentScreenSecondsSince(dLastTimePathUpdates) > dPathUpdateFrequency)
             {
-                lastTimePathUpdates = TimeManager.CurrentScreenTime;
+                dLastTimePathUpdates = TimeManager.CurrentScreenTime;
                 topDownAiInput.UpdatePath();
 
                 // Remove the first node in the path to prevent backtracking
@@ -83,6 +100,38 @@ namespace Nugget.Entities
                 // This can take multiple shape collections since some games use more than one
                 // TileShapeCollection for pathfinding
                 new List<FlatRedBall.TileCollisions.TileShapeCollection> { collision });
+        }
+
+        /// <summary>
+        /// Returns true or false if the enemy should take damage from the player or not.
+        /// </summary>
+        /// <param name="enemy"></param>
+        /// <returns></returns>
+        public bool ShouldTakeDamage(Player player)
+        {
+            fTimeSinceLastDamage += TimeManager.LastSecondDifference;
+
+            if (fTimeSinceLastDamage > 1)
+            {
+                return true;
+            }
+
+            return false;
+        }
+
+        /// <summary>
+        /// Calculates how much damage the enemy received from the player attack collision.
+        /// </summary>
+        /// <param name="enemy"></param>
+        public void TakeDamage(Player player)
+        {
+            iEnemyCurrentHealth -= player.iAttackDamage;
+            Debug.WriteLine("Enemy Health: " + iEnemyCurrentHealth);
+
+            if (iEnemyCurrentHealth < 0)
+            {
+                this.Destroy();
+            }
         }
     }
 }

@@ -16,7 +16,7 @@ namespace Nugget.Entities
     public partial class Plant
     {
         // Tracks how long the plant is growing before it's ready to be harvested.
-        float growthTimer = 0f;
+        float fGrowthTimer = 0f;
 
         /// <summary>
         /// Initialization logic which is executed only one time for this Entity (unless the Entity is pooled).
@@ -46,10 +46,10 @@ namespace Nugget.Entities
         private void GrowSeedToPlant()
         {
             // Keeps track of time in seconds.
-            growthTimer += TimeManager.SecondDifference;
+            fGrowthTimer += TimeManager.SecondDifference;
 
             // If plant has been planted for 5 seconds...
-            if (growthTimer >= 5f)
+            if (fGrowthTimer >= 5f)
             {
                 // Change color to green.
                 PlantCircle.Color = Color.Green;

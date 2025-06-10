@@ -12,27 +12,30 @@ using Microsoft.Xna.Framework;
 using FlatRedBall.Gui;
 using System.Diagnostics;
 using Nugget.Utilities;
+using Nugget.DataTypes;
 
 namespace Nugget.Entities
 {
     public partial class Player
     {        
+        public int iAttackDamage = GlobalData.PlayerData.iAttackDamage;
+
         // Give this some large negative value so logic
         // doesn't consider attacks to happen right when 
         // the entity is created
-        double LastTimeAttackStarted = -999;
+        double dLastTimeAttackStarted = -999;
 
         // How long the attack can deal damage
-        double AttackDamageDuration = .5;
+        double dAttackDamageDuration = .5;
 
         // How long the player must wait before attacking again after the attack ends
-        double AttackCooldown = 1;
+        double dAttackCooldown = 1;
 
-        public bool IsAttackActive =>
-            TimeManager.CurrentScreenSecondsSince(LastTimeAttackStarted) < AttackDamageDuration;
+        public bool bIsAttackActive =>
+            TimeManager.CurrentScreenSecondsSince(dLastTimeAttackStarted) < dAttackDamageDuration;
 
-        public bool IsAttackAvailable =>
-                TimeManager.CurrentScreenSecondsSince(LastTimeAttackStarted) > AttackCooldown;
+        public bool bIsAttackAvailable =>
+                TimeManager.CurrentScreenSecondsSince(dLastTimeAttackStarted) > dAttackCooldown;
 
         /// <summary>
         /// Initialization logic which is executed only one time for this Entity (unless the Entity is pooled).
@@ -41,9 +44,11 @@ namespace Nugget.Entities
         /// </summary>
         private void CustomInitialize()
         {
-            // Prevents the PlayerHealthBar from rotating with the player.
-            var hudParent = gumAttachmentWrappers[0];
-            hudParent.ParentRotationChangesRotation = false;
+            /// <summary>
+            /// Prevents the PlayerHealthBar from rotating with the player.
+            /// </summary>
+            var vHudParent = gumAttachmentWrappers[0];
+            vHudParent.ParentRotationChangesRotation = false;
 
             SwordCollision.Visible = false;
         }
@@ -55,22 +60,32 @@ namespace Nugget.Entities
 
         private void Attack()
         {
-            // Initialize cursor to get cursor's current position.
+            /// <summary>
+            /// Initialize cursor to get cursor's current position.
+            /// </summary>
             var cursor = GuiManager.Cursor;
 
-            // Get mouse cursor position.
+            /// <summary>
+            /// Get mouse cursor position.
+            /// </summary>
             var cursorX = cursor.WorldX;
             var cursorY = cursor.WorldY;
 
-            // Get player's current position.
+            /// <summary>
+            /// Get player's current position.
+            /// </summary>
             var playerX = PlayerRectangle.X;
             var playerY = PlayerRectangle.Y;
 
-            // Cursor's relative position to the player position.
+            /// <summary>
+            /// Cursor's relative position to the player position.
+            /// </summary>
             var deltaX = cursorX - playerX;
             var deltaY = cursorY - playerY;
 
-            // Get the angle from the player's position to the cursor's position in radians.
+            /// <summary>
+            /// Get the angle from the player's position to the cursor's position in radians.
+            /// </summary>
             var angleToCursor = Math.Atan2(deltaY, deltaX);
 
             /// <summary>
@@ -80,10 +95,10 @@ namespace Nugget.Entities
             var numberOfNinetyDegreeSlices = Math.Round(angleToCursor / MathConstants.QuarterCircle) * MathConstants.QuarterCircle;
 
             // If Left Mouse click and Attack Available
-            if (InputManager.Mouse.ButtonDown(Mouse.MouseButtons.LeftButton) && IsAttackAvailable)
+            if (InputManager.Mouse.ButtonDown(Mouse.MouseButtons.LeftButton) && bIsAttackAvailable)
             {
                 // Get the time stamp in seconds since the beginning of the last attack.
-                LastTimeAttackStarted = TimeManager.CurrentScreenTime;
+                dLastTimeAttackStarted = TimeManager.CurrentScreenTime;
                 // Show SwordCollision
                 SwordCollision.Visible = true;
                 // Stop the player from moving
@@ -92,14 +107,53 @@ namespace Nugget.Entities
             }
 
             // If the last time the player attacked was 0.25 seconds ago...
-            if (LastTimeAttackStarted < TimeManager.CurrentScreenTime - 0.25)
+            if (dLastTimeAttackStarted < TimeManager.CurrentScreenTime - 0.25)
             {
                 // Allow the player to start walking again.
                 this.CurrentMovement = TopDownValues[DataTypes.TopDownValues.Default];
             }
 
             // Boolean that shows or hides the sword collision circle.
-            SwordCollision.Visible = IsAttackActive;
+            SwordCollision.Visible = bIsAttackActive;
+        }
+
+        /// <summary>
+        /// Keeps track of how long (in seconds) since the player last received damage.
+        /// </summary>
+        float fTimeSinceLastDamage = 1;
+
+        /// <summary>
+        /// Returns true or false if the player should take damage from the enemy or not.
+        /// </summary>
+        /// <param name="enemy"></param>
+        /// <returns></returns>
+        public bool ShouldTakeDamage(Enemy enemy)
+        {
+            fTimeSinceLastDamage += TimeManager.SecondDifference;
+
+            if (fTimeSinceLastDamage >= 1)
+            {
+                Debug.WriteLine("Player Health: " + GlobalData.PlayerData.iCurrentHealth);
+                fTimeSinceLastDamage = 0;
+                return true;
+            }
+
+            return false;
+        }
+
+        /// <summary>
+        /// Calculates how much damage the player received from an enemy collision.
+        /// </summary>
+        /// <param name="enemy"></param>
+        public void TakeDamage(Enemy enemy)
+        {
+            GlobalData.PlayerData.iCurrentHealth -= enemy.iEnemyAttackDamage;
+            Debug.WriteLine("Player Health: " + GlobalData.PlayerData.iCurrentHealth);
+
+            if (GlobalData.PlayerData.iCurrentHealth < 0)
+            {
+                this.Destroy();
+            }
         }
 
         private void CustomDestroy()

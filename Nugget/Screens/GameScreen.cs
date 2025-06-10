@@ -32,17 +32,17 @@ namespace Nugget.Screens
             this.TextInstance.Text = "0";
 
             // This foreach handles enemies created before the screen's initialize.
-            foreach (var enemy in EnemyBaseList)
+            foreach (var enemy in EnemyList)
             {
                 PrepareEnemyPathfinding(enemy);
             }
             // This event handler handles enemies created after the screen's initialize.
-            Factories.EnemyBaseFactory.EntitySpawned += PrepareEnemyPathfinding;
+            Factories.EnemyFactory.EntitySpawned += PrepareEnemyPathfinding;
         }
 
         private void CustomActivity(bool firstTimeCalled)
         {
-            iTotalSeeds = DataTypes.GlobalData.PlayerData.SeedCount;
+            iTotalSeeds = DataTypes.GlobalData.PlayerData.iSeedCount;
 
             // Check when "1" is pressed on the keyboard.
             var isOnePressed = InputManager.Keyboard.KeyDown(Microsoft.Xna.Framework.Input.Keys.D1);
@@ -84,7 +84,7 @@ namespace Nugget.Screens
 
         }
 
-        private void PrepareEnemyPathfinding(EnemyBase enemy)
+        private void PrepareEnemyPathfinding(Enemy enemy)
         {
             enemy.InitializePathfinding(Player1, WalkingNodeNetwork, SolidCollision);
         }
@@ -102,8 +102,8 @@ namespace Nugget.Screens
             pFarmPlot.IsPlanted = true;
 
             // Subtract 1 seed from the total of seeds the player is currently holding.
-            DataTypes.GlobalData.PlayerData.SeedCount -= 1;
-            this.TextInstance.Text = DataTypes.GlobalData.PlayerData.SeedCount.ToString();
+            DataTypes.GlobalData.PlayerData.iSeedCount -= 1;
+            this.TextInstance.Text = DataTypes.GlobalData.PlayerData.iSeedCount.ToString();
         }
     }
 }

@@ -345,8 +345,8 @@
     <Compile Include="DataTypes\PlayerData.cs" />
     <Compile Include="DataTypes\TileMapInfo.Generated.cs" />
     <Compile Include="DataTypes\TopDownValues.Generated.cs" />
-    <Compile Include="Entities\EnemyBase.cs" />
-    <Compile Include="Entities\EnemyBase.Generated.cs">
+    <Compile Include="Entities\Enemy.cs" />
+    <Compile Include="Entities\Enemy.Generated.cs">
       <DependentUpon>EnemyBase.cs</DependentUpon>
     </Compile>
     <Compile Include="Entities\EnemySpawner.cs" />
@@ -369,7 +369,7 @@
     <Compile Include="Entities\Player.Generated.cs">
       <DependentUpon>Player.cs</DependentUpon>
     </Compile>
-    <Compile Include="Factories\EnemyBaseFactory.Generated.cs" />
+    <Compile Include="Factories\EnemyFactory.Generated.cs" />
     <Compile Include="Factories\EnemySpawnerFactory.Generated.cs" />
     <Compile Include="Factories\FarmPlotFactory.Generated.cs" />
     <Compile Include="Factories\PlantFactory.Generated.cs" />

@@ -14,7 +14,7 @@ namespace Nugget.Screens
 {
     public partial class GameScreen
     {
-        void OnPlayerVsEnemyCollided (Entities.Player player, Entities.EnemyBase enemy) 
+        void OnPlayerVsEnemyCollided (Entities.Player player, Entities.Enemy enemy) 
         {
             // ShouldTakeDamage checks if
             // * Enemy and Player are on different teams
@@ -26,26 +26,22 @@ namespace Nugget.Screens
                 // Raises all events for damage dealing and ultimately
                 // modifies the player's health.
                 player.TakeDamage(enemy);
-
-                // Typically when an entity reaches 0 health, it should be destroyed
-                if (player.CurrentHealth <= 0)
-                {
-                    player.Destroy();
-                }
             }
         }
 
-        void OnPlayerSwordCollisionVsEnemyCollided (Entities.Player player, Entities.EnemyBase enemy) 
+        void OnPlayerSwordCollisionVsEnemyCollided (Entities.Player player, Entities.Enemy enemy) 
         {
-            if (player.IsAttackActive && enemy.ShouldTakeDamage(player))
+            if (player.bIsAttackActive && enemy.ShouldTakeDamage(player))
             {
                 enemy.TakeDamage(player);
 
-                if (enemy.CurrentHealth <= 0)
+                if (enemy.iEnemyCurrentHealth <= 0)
                 {
                     enemy.Destroy();
                 }
             }
+
+            // Debug.WriteLine("Enemy Health: " + enemy.CurrentHealth);
         }
         
         /// <summary>
@@ -58,8 +54,8 @@ namespace Nugget.Screens
             // Remove instance of seed from game.
             seed.Destroy();
 
-            DataTypes.GlobalData.PlayerData.SeedCount += 1;
-            this.TextInstance.Text = DataTypes.GlobalData.PlayerData.SeedCount.ToString();
+            DataTypes.GlobalData.PlayerData.iSeedCount += 1;
+            this.TextInstance.Text = DataTypes.GlobalData.PlayerData.iSeedCount.ToString();
         }
     }
 }

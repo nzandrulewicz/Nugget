@@ -108,7 +108,7 @@
   ],
   "EntityReferences": [
     {
-      "Name": "Entities\\EnemyBase"
+      "Name": "Entities\\Enemy"
     },
     {
       "Name": "Entities\\EnemySpawner"

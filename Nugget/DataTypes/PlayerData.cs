@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Nugget.Entities;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -9,28 +10,41 @@ namespace Nugget.DataTypes
 {
     internal class PlayerData
     {
-        private int health;
-        public int Health
+        /// <summary>
+        /// Get instance of the Player entity.
+        /// </summary>
+        // Entities.Player player;
+
+        /*
+        private int myProperty;
+        
+        public int MyProperty
         {
-            get
-            {
-                return health;
+            get 
+            { 
+                return myProperty; 
             }
             set
             {
-                health = value;
-
-                // Multiply the value by 100 so that full health is 100%
-                //PlayerHealthBarRuntimeInstance.PercentFull = 100 * Health / (float)MaxHealth;
-
-                if (health <= 0)
-                {
-                    //Destroy();
-                }
+                myProperty = value;
             }
         }
+        */
 
-        public int SeedCount
+        /// <summary>
+        /// Preserve the player's Max Health value.
+        /// </summary>
+        public int iCurrentHealth { get; set; } = 100;
+
+        /// <summary>
+        /// Preserve the player's Attack Damage value.
+        /// </summary>
+        public int iAttackDamage { get; set; } = 10;
+
+        /// <summary>
+        /// Preserve the number of seed the player has.
+        /// </summary>
+        public int iSeedCount
         {
             get;
             set;
