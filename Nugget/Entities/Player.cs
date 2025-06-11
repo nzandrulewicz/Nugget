@@ -148,9 +148,10 @@ namespace Nugget.Entities
         public void TakeDamage(Enemy enemy)
         {
             GlobalData.PlayerData.iCurrentHealth -= enemy.iEnemyAttackDamage;
+            PlayerHealthBarRuntimeInstance.PercentFull = 100 * GlobalData.PlayerData.iCurrentHealth / (float)GlobalData.PlayerData.iStartingHealth;
             Debug.WriteLine("Player Health: " + GlobalData.PlayerData.iCurrentHealth);
 
-            if (GlobalData.PlayerData.iCurrentHealth < 0)
+            if (GlobalData.PlayerData.iCurrentHealth <= 0)
             {
                 this.Destroy();
             }

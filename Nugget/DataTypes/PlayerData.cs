@@ -32,7 +32,12 @@ namespace Nugget.DataTypes
         */
 
         /// <summary>
-        /// Preserve the player's Max Health value.
+        /// Preserve the player's Starting Health value.
+        /// </summary>
+        public int iStartingHealth { get; set; } = 100;
+
+        /// <summary>
+        /// Preserve the player's Current Health value.
         /// </summary>
         public int iCurrentHealth { get; set; } = 100;
 
