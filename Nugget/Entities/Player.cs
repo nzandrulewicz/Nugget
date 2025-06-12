@@ -23,19 +23,21 @@ namespace Nugget.Entities
         // Give this some large negative value so logic
         // doesn't consider attacks to happen right when 
         // the entity is created
-        double dLastTimeAttackStarted = -999;
+        TimeSpan tsLastTimeAttackStarted = TimeSpan.FromSeconds(-999);
 
-        // How long the attack can deal damage
-        double dAttackDamageDuration = .5;
+        TimeSpan tsAttackDamageDuration = TimeSpan.FromSeconds(.5);
 
-        // How long the player must wait before attacking again after the attack ends
-        double dAttackCooldown = 1;
+        TimeSpan tsAttackCooldown = TimeSpan.FromSeconds(1);
 
         public bool bIsAttackActive =>
-            TimeManager.CurrentScreenSecondsSince(dLastTimeAttackStarted) < dAttackDamageDuration;
+            TimeManager.CurrentScreenSecondsSince(tsLastTimeAttackStarted.TotalSeconds) < tsAttackDamageDuration.TotalSeconds;
 
         public bool bIsAttackAvailable =>
-                TimeManager.CurrentScreenSecondsSince(dLastTimeAttackStarted) > dAttackCooldown;
+                TimeManager.CurrentScreenSecondsSince(tsLastTimeAttackStarted.TotalSeconds) > tsAttackCooldown.TotalSeconds;
+
+        TimeSpan tsWaitAfterAttackToMove = TimeSpan.FromSeconds(0.25);
+
+        TimeSpan tsWaitAfterAttackToIdle = TimeSpan.FromSeconds(0.5);
 
         /// <summary>
         /// Initialization logic which is executed only one time for this Entity (unless the Entity is pooled).
@@ -98,23 +100,31 @@ namespace Nugget.Entities
             if (InputManager.Mouse.ButtonDown(Mouse.MouseButtons.LeftButton) && bIsAttackAvailable)
             {
                 // Get the time stamp in seconds since the beginning of the last attack.
-                dLastTimeAttackStarted = TimeManager.CurrentScreenTime;
+                tsLastTimeAttackStarted = TimeSpan.FromSeconds(TimeManager.CurrentScreenTime);
                 // Show SwordCollision
-                SwordCollision.Visible = true;
+                // SwordCollision.Visible = true;
                 // Stop the player from moving
                 this.CurrentMovement = TopDownValues[DataTypes.TopDownValues.AttackMovement];
                 this.RotationZ = (float)numberOfNinetyDegreeSlices;
+
+                PlayerSpriteInstance.Texture = PlayerAttack;
             }
 
             // If the last time the player attacked was 0.25 seconds ago...
-            if (dLastTimeAttackStarted < TimeManager.CurrentScreenTime - 0.25)
+            if (tsLastTimeAttackStarted.TotalSeconds < TimeManager.CurrentScreenTime - tsWaitAfterAttackToMove.TotalSeconds)
             {
                 // Allow the player to start walking again.
                 this.CurrentMovement = TopDownValues[DataTypes.TopDownValues.Default];
             }
 
+            // If the last time the player attacked was 0.50 seconds ago...
+            if (tsLastTimeAttackStarted.TotalSeconds < TimeManager.CurrentScreenTime - tsWaitAfterAttackToIdle.TotalSeconds)
+            {
+                PlayerSpriteInstance.Texture = PlayerIdle;
+            }
+
             // Boolean that shows or hides the sword collision circle.
-            SwordCollision.Visible = bIsAttackActive;
+            // SwordCollision.Visible = bIsAttackActive;
         }
 
         /// <summary>

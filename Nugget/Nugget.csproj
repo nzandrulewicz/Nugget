@@ -23,6 +23,14 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>TopDownValuesStatic</Name>
     </None>
+    <None Include="Content\Entities\Player\PlayerAttack.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>PlayerAttack</Name>
+    </None>
+    <None Include="Content\Entities\Player\PlayerIdle.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>PlayerIdle</Name>
+    </None>
     <None Include="Content\Entities\Player\TopDownValuesStatic.csv">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>TopDownValuesStatic</Name>
@@ -323,6 +331,10 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>UISpriteSheet</Name>
     </None>
+    <None Include="Content\Screens\Level1\Environment.tsx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Environment</Name>
+    </None>
     <None Include="Content\Screens\Level1\Level1Map.tmx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>Level1Map</Name>
@@ -330,6 +342,10 @@
     <None Include="Content\Screens\Level2\Level2Map.tmx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>Level2Map</Name>
+    </None>
+    <None Include="Content\SpriteSheets\Environment.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Environment</Name>
     </None>
     <None Include="Content\StandardTileset.tsx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -347,7 +363,7 @@
     <Compile Include="DataTypes\TopDownValues.Generated.cs" />
     <Compile Include="Entities\Enemy.cs" />
     <Compile Include="Entities\Enemy.Generated.cs">
-      <DependentUpon>EnemyBase.cs</DependentUpon>
+      <DependentUpon>Enemy.cs</DependentUpon>
     </Compile>
     <Compile Include="Entities\EnemySpawner.cs" />
     <Compile Include="Entities\EnemySpawner.Generated.cs">

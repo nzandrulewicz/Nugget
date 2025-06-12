@@ -164,7 +164,7 @@
     <Variable>
       <Type>float</Type>
       <Name>Height</Name>
-      <Value xsi:type="xsd:float">12</Value>
+      <Value xsi:type="xsd:float">4</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -177,7 +177,7 @@
     <Variable>
       <Type>float</Type>
       <Name>Width</Name>
-      <Value xsi:type="xsd:float">48</Value>
+      <Value xsi:type="xsd:float">32</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -189,7 +189,7 @@
     <Variable>
       <Type>float</Type>
       <Name>Y</Name>
-      <Value xsi:type="xsd:float">-30</Value>
+      <Value xsi:type="xsd:float">-16</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>

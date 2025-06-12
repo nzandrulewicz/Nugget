@@ -1,9 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="32" height="32" tilewidth="16" tileheight="16" infinite="0" nextlayerid="3" nextobjectid="1">
+<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="32" height="32" tilewidth="16" tileheight="16" infinite="0" nextlayerid="7" nextobjectid="1">
  <tileset firstgid="1" source="../../StandardTileset.tsx"/>
- <layer id="1" name="GameplayLayer" width="32" height="32" tintcolor="#ffffff">
+ <tileset firstgid="1025" source="Environment.tsx"/>
+ <layer id="5" name="Ground" width="32" height="32">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAACu3OoQ0AQAzDwHTZ7D/C0wfFNbGl4MskGXhU+vr6+vp7Bf2CfsP6/w99ff1bv8su/av09fV5n9wDoqioBAAQAAA=
+   H4sIAAAAAAAACu3DwQkAAAwDoTxu/5m7R1GwtlRVVdXXD5a1VNUAEAAA
+  </data>
+ </layer>
+ <layer id="6" name="TopGround" width="32" height="32">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAACu2XSwrAIAxEu/AQ9Th6/0OVKQiF2tqEfKrkbeJyHk4ES9pOitMENflMZLjmsKR2/K2Z1T8LZZ7Ff1fKaOXfyx/9v5+5veb242/+1qzmT+3PyF/r3QHa9/8l+2r3TyX87fyxm/nBWcqfuq9v/pq7Dzj+0pmi/+Hf/L3+oC2H1zwAk3qSAAAQAAA=
+  </data>
+ </layer>
+ <layer id="1" name="GameplayLayer" width="32" height="32" visible="0" tintcolor="#ffffff">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAACu3XoQ0AMAzEwHTZ33+EwhYUvwtsKVLYhWaGb0Fz++309fX1f/YD+gH9DOvfd+jr63f9PKbpN9LX1z87+X+SbQOjzq4AEAAA
   </data>
  </layer>
  <layer id="2" name="EnemyWalkableTIleLayer" width="32" height="32" visible="0">

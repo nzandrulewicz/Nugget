@@ -18,6 +18,18 @@
       "HasPublicProperty": true,
       "CreatesDictionary": true,
       "ProjectsToExcludeFrom": []
+    },
+    {
+      "Name": "Entities/Player/PlayerIdle.png",
+      "IsSharedStatic": true,
+      "RuntimeType": "Microsoft.Xna.Framework.Graphics.Texture2D",
+      "ProjectsToExcludeFrom": []
+    },
+    {
+      "Name": "Entities/Player/PlayerAttack.png",
+      "IsSharedStatic": true,
+      "RuntimeType": "Microsoft.Xna.Framework.Graphics.Texture2D",
+      "ProjectsToExcludeFrom": []
     }
   ],
   "CustomVariables": [
@@ -69,47 +81,6 @@
   ],
   "NamedObjects": [
     {
-      "InstanceName": "SpriteInstance",
-      "SourceClassType": "FlatRedBall.Sprite",
-      "Properties": [
-        {
-          "Name": "AssociateWithFactory",
-          "Value": true,
-          "Type": "bool"
-        }
-      ],
-      "InstructionSaves": [
-        {
-          "Type": "AnimationChainList",
-          "Member": "AnimationChains",
-          "Value": "ZoriaTopDownAnimations",
-          "Time": 0.0
-        },
-        {
-          "Type": "string",
-          "Member": "CurrentChainName",
-          "Value": "IdleDown",
-          "Time": 0.0
-        },
-        {
-          "Type": "float",
-          "Member": "TextureScale",
-          "Value": 5.0,
-          "Time": 0.0
-        },
-        {
-          "Type": "bool",
-          "Member": "Visible",
-          "Value": false,
-          "Time": 0.0
-        }
-      ],
-      "SourceType": 2,
-      "SourceFile": "Sprite",
-      "AttachToContainer": true,
-      "GenerateTimedEmit": true
-    },
-    {
       "InstanceName": "PlayerRectangle",
       "SourceClassType": "FlatRedBall.Math.Geometry.AxisAlignedRectangle",
       "Properties": [
@@ -136,6 +107,12 @@
           "Type": "float",
           "Member": "Y",
           "Value": 0.0,
+          "Time": 0.0
+        },
+        {
+          "Type": "bool",
+          "Member": "Visible",
+          "Value": false,
           "Time": 0.0
         }
       ],
@@ -167,6 +144,12 @@
           "Member": "X",
           "Value": 16.0,
           "Time": 0.0
+        },
+        {
+          "Type": "bool",
+          "Member": "Visible",
+          "Value": false,
+          "Time": 0.0
         }
       ],
       "SourceType": 2,
@@ -189,6 +172,41 @@
       "InstructionSaves": [],
       "SourceType": 3,
       "SourceFile": "PlayerHealthBarRuntime",
+      "AttachToContainer": true,
+      "GenerateTimedEmit": true
+    },
+    {
+      "InstanceName": "PlayerSpriteInstance",
+      "SourceClassType": "FlatRedBall.Sprite",
+      "Properties": [
+        {
+          "Name": "AssociateWithFactory",
+          "Value": true,
+          "Type": "bool"
+        }
+      ],
+      "InstructionSaves": [
+        {
+          "Type": "float",
+          "Member": "RotationZ",
+          "Value": -1.5707964,
+          "Time": 0.0
+        },
+        {
+          "Type": "Texture2D",
+          "Member": "Texture",
+          "Value": "PlayerIdle",
+          "Time": 0.0
+        },
+        {
+          "Type": "float",
+          "Member": "TextureScale",
+          "Value": 1.0,
+          "Time": 0.0
+        }
+      ],
+      "SourceType": 2,
+      "SourceFile": "Sprite",
       "AttachToContainer": true,
       "GenerateTimedEmit": true
     }
