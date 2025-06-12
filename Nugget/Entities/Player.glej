@@ -98,6 +98,12 @@
           "Time": 0.0
         },
         {
+          "Type": "bool",
+          "Member": "Visible",
+          "Value": false,
+          "Time": 0.0
+        },
+        {
           "Type": "float",
           "Member": "Width",
           "Value": 16.0,
@@ -107,12 +113,6 @@
           "Type": "float",
           "Member": "Y",
           "Value": 0.0,
-          "Time": 0.0
-        },
-        {
-          "Type": "bool",
-          "Member": "Visible",
-          "Value": false,
           "Time": 0.0
         }
       ],
@@ -140,15 +140,15 @@
           "Time": 0.0
         },
         {
-          "Type": "float",
-          "Member": "X",
-          "Value": 16.0,
-          "Time": 0.0
-        },
-        {
           "Type": "bool",
           "Member": "Visible",
           "Value": false,
+          "Time": 0.0
+        },
+        {
+          "Type": "float",
+          "Member": "X",
+          "Value": 16.0,
           "Time": 0.0
         }
       ],

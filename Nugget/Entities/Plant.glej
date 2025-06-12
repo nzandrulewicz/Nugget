@@ -105,14 +105,8 @@
       "InstructionSaves": [
         {
           "Type": "float",
-          "Member": "TextureScale",
-          "Value": 1.0,
-          "Time": 0.0
-        },
-        {
-          "Type": "Texture2D",
-          "Member": "Texture",
-          "Value": "Environment",
+          "Member": "BottomTexturePixel",
+          "Value": 48.0,
           "Time": 0.0
         },
         {
@@ -123,20 +117,26 @@
         },
         {
           "Type": "float",
-          "Member": "TopTexturePixel",
-          "Value": 32.0,
-          "Time": 0.0
-        },
-        {
-          "Type": "float",
           "Member": "RightTexturePixel",
           "Value": 96.0,
           "Time": 0.0
         },
         {
+          "Type": "Texture2D",
+          "Member": "Texture",
+          "Value": "Environment",
+          "Time": 0.0
+        },
+        {
           "Type": "float",
-          "Member": "BottomTexturePixel",
-          "Value": 48.0,
+          "Member": "TextureScale",
+          "Value": 1.0,
+          "Time": 0.0
+        },
+        {
+          "Type": "float",
+          "Member": "TopTexturePixel",
+          "Value": 32.0,
           "Time": 0.0
         }
       ],
